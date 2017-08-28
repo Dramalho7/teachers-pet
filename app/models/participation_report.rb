@@ -1,0 +1,2 @@
+class ParticipationReport < ApplicationRecord
+end

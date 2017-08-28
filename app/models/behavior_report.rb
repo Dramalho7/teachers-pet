@@ -1,0 +1,2 @@
+class BehaviorReport < ApplicationRecord
+end
