@@ -21,6 +21,16 @@ class TeachersController < ApplicationController
 	end
 
 	def show
+
+		@teacher = Teacher.find(params[:id])
+		@courses = Course.all
+
+		if @courses.save
+          	respond_to do |format|
+            format.html { redirect_to teachers_path(@courses) }
+            format.js
+        end
+    end
 		
 	end
 
