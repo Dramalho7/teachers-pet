@@ -1,21 +1,23 @@
+<div id='teacher-profile'>
+	<img src=<%='@teacher.avatar'%>>
+	<h1><%= @teacher.name %></h1>
 
-<h1><%= @teacher.name %></h1>
+	<h3>Add a Course</h3>
 
-<h3>Add a Course</h3>
+	<%= form_for Course.new, remote: true do |f| %>
 
-<%= form_for Course.new, remote: true do |f| %>
+	  <p>
+	    <%= f.label :name %><br>
+	    <%= f.text_field :name %>
+	  </p>
 
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
+	  <p>
+	    <%= f.submit %>
+	  </p>
+	<% end %>
+	<%= link_to "Sign out", destroy_teacher_session_path, :method => :delete %>
 
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
-<%= link_to "Sign out", destroy_teacher_session_path, :method => :delete %>
-
+</div>
 <div class = 'container'>
 
   <div class = 'row'>
