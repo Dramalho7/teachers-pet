@@ -1,0 +1,15 @@
+<h1><%= @teacher.name %></h1>
+
+<h3>Add a Course</h3>
+
+<%= form_for Spaceship.new, remote: true do |f| %>
+
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
