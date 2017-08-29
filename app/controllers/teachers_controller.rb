@@ -22,16 +22,15 @@ class TeachersController < ApplicationController
 
 	def show
 
-		@teacher = Teacher.find(params[:id])
-		@courses = Course.all
-
-		if @courses.save
-          	respond_to do |format|
-            format.html { redirect_to teachers_path(@courses) }
-            format.js
-        end
-    end
-		
+		# @teacher = Teacher.find(params[:id])
+		# @courses = Course.all
+		# @make_course = Course.create(:name params[:course][:name], teacher_id: @teacher)
+		# @students = Student.all
+		# if @make_course.save
+  #         	respond_to do |format|
+  #           format.html { redirect_to teachers_path(@courses) }
+  #           format.js
+  #       end
 	end
 
 	def destroy
