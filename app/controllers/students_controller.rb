@@ -12,8 +12,8 @@ class StudentsController < ApplicationController
 
 	def create
 		@current_user = current_user.id
-		@student = Student.create(name: params[:student][:name], parents_email: params[:student][:parents_email]
-		redirect_to action:'index'
+		@student = Student.create(name: params[:student][:name], parents_email: params[:student][:parents_email]);
+		redirect_to action: 'index'
 	end
 
 	def destroy
@@ -21,7 +21,7 @@ class StudentsController < ApplicationController
 		@course = Course.where({student_id: @student.id})
 		@course.destroy_all
 		@student.delete
-		redirect_to action:'index'
+		redirect_to action: 'index'
 	end
 
 	def show
@@ -36,7 +36,7 @@ class StudentsController < ApplicationController
 		@student = Student.find(params[:id])
 		@student.name = params[:student][:name]
 		@student.save
-		redirect_to :action => 'index'
+		redirect_to action: 'index'
 	end
 
 end
