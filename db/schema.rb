@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20170829154826) do
     t.integer "student_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "avatar"
   end
 
   create_table "grades", force: :cascade do |t|
