@@ -1,5 +1,5 @@
 <div id='teacher-profile'>
-	<img src=<%='@teacher.avatar'%>>
+	<%= image_tag( @teacher.avatar, size: '200x200', class: 'profilePic')%>
 	<h1><%= @teacher.name %></h1>
 
 	<h3>Add a Course</h3>
@@ -17,10 +17,21 @@
 	<% end %>
 	<%= link_to "Sign out", destroy_teacher_session_path, :method => :delete %>
 
+<div class='col-md-1'>
+</div>
+<div class='col-md-10'>
+	<div id='teacher-courses'>
+	<% @courses.each do |g| %>
+		<%= g.name %>
+	<%end%>
+	</div>
+</div>
+<div class='col-md-1'>
 </div>
 <div class = 'container'>
 
   <div class = 'row'>
 
   </div>
+</div>
 </div>
