@@ -1,0 +1,2 @@
+class ParticipationReportsController < ApplicationController
+end
