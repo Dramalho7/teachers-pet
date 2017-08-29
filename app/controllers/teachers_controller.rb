@@ -21,7 +21,9 @@ class TeachersController < ApplicationController
 	end
 
 	def show
-		
+		@teacher = Teacher.find(params[:id])
+		@courses = Course.all
+		@students = Student.all
 	end
 
 	def destroy

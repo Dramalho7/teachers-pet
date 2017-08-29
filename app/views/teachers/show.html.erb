@@ -3,7 +3,7 @@
 
 <h3>Add a Course</h3>
 
-<%= form_for Courses.new, remote: true do |f| %>
+<%= form_for Course.new, remote: true do |f| %>
 
   <p>
     <%= f.label :name %><br>
@@ -14,7 +14,7 @@
     <%= f.submit %>
   </p>
 <% end %>
-
+<%= link_to "Sign out", destroy_teacher_session_path, :method => :delete %>
 
 <div class = 'container'>
 
