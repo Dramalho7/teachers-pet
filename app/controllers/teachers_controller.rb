@@ -21,7 +21,13 @@ class TeachersController < ApplicationController
 	end
 
 	def show
+		@teacher = Teacher.find(params[:id])
+
+		@courses = Course.where(teacher_id: @teacher.id).select(:name).distinct
 		
+		
+
+		@students = Student.all
 	end
 
 	def destroy
