@@ -1,5 +1,7 @@
 {
   "name": "teachers-pet",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "yarn-install": "^0.5.1"
+  }
 }
