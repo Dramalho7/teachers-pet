@@ -27,7 +27,7 @@
 # student = Student.create(name: 'Geoffrey Barratheon', parent_email:'test@gmail.com', avatar: 'assets/geoffrey.png')
 # student = Student.create(name: 'Rickon Stark', parent_email:'test@gmail.com', avatar: 'assets/rickon.png')
 # student = Student.create(name: 'Theon Grayjoy', parent_email:'test@gmail.com', avatar: 'assets/theon.png')
-
+# student = Student.create(name: 'Ramsey Bolton', parent_email:'test@gmail.com', avatar: 'assets/ramsey.png')
 # course = Course.create(name: 'Period 1 Bio', teacher_id: '1', student_id: '2', avatar: 'assets/cell.png')
 # course = Course.create(name: 'Period 1 Bio', teacher_id: '1', student_id: '3', avatar: 'assets/cell.png')
 # course = Course.create(name: 'Period 1 Bio', teacher_id: '1', student_id: '4', avatar: 'assets/cell.png')
@@ -51,6 +51,13 @@
 # course = Course.create(name: 'Period 4 English', teacher_id: '2', student_id: '6', avatar: 'assets/english.png')
 # course = Course.create(name: 'Period 4 English', teacher_id: '2', student_id: '7', avatar: 'assets/english.png')
 # course = Course.create(name: 'Period 4 English', teacher_id: '2', student_id: '8', avatar: 'assets/english.png')
+# course = Course.create(name: 'Period 5 English', teacher_id: '2', student_id: '11', avatar: 'assets/english.png')
+# course = Course.create(name: 'Period 5 English', teacher_id: '2', student_id: '12', avatar: 'assets/english.png')
+# course = Course.create(name: 'Period 4 English', teacher_id: '2', student_id: '14', avatar: 'assets/english.png')
+# course = Course.create(name: 'Period 4 English', teacher_id: '2', student_id: '15', avatar: 'assets/english.png')
+
+# course = Course.create(name: 'Period 3 Bio', teacher_id: '1', student_id: '1', avatar: 'assets/english.png')
+# course = Course.create(name: 'Period 7 Bio', teacher_id: '1', student_id: '16', avatar: 'assets/english.png')
 
 
 
