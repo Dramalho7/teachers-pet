@@ -12,7 +12,7 @@ class StudentsController < ApplicationController
 
 	def create
 		@current_user = current_user.id
-		@student = Student.create(name: params[:student][:name], parents_email: params[:student][:parents_email]
+		@student = Student.create(name: params[:student][:name], parents_email: params[:student][:parents_email]);
 		redirect_to action: 'index'
 	end
 
