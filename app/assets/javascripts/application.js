@@ -13,6 +13,13 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
-
+//=require jquery
 
 //= require bootstrap-sprockets
+
+
+$( document ).ready(function() {
+$('.new-class-btn').click(function(){
+	$('#new-class').css("display","inherit")
+})
+})

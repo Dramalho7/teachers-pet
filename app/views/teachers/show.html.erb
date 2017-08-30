@@ -3,18 +3,25 @@
 	<h1><%= @teacher.name %></h1>
 
 	<h3>Add a Course</h3>
+	<%= image_tag('plus.png', size: '40x40', class: 'new-class-btn') %>
+	
+	<div id='new-class'>
+		<%= form_for Course.new do |f| %>
 
-	<%= form_for Course.new, remote: true do |f| %>
+		  <p>
+		    <%= f.label :name %><br>
+		    <%= f.text_field :name %>
+		  </p>
+		  <p>
+		  	<%= f.label :Avatar %>
+			<%= f.file_field :avatar %>
+		  </p>
+		  <p>
+		    <%= f.submit %>
+		  </p>
+		<% end %>
+	</div>
 
-	  <p>
-	    <%= f.label :name %><br>
-	    <%= f.text_field :name %>
-	  </p>
-
-	  <p>
-	    <%= f.submit %>
-	  </p>
-	<% end %>
 	<%= link_to "Sign out", destroy_teacher_session_path, :method => :delete %>
 
 
