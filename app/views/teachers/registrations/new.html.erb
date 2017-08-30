@@ -24,6 +24,11 @@
                   </li>
                 </ul>
                 <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-user "></i></span>
+                  <%= f.text_field :name, autofocus: true, class:'form-control', placeholder:'Name' %>
+                </div>
+                <div class="input-group">
+                <div class="input-group">
                   <span class="input-group-addon"><i class="fa fa-envelope "></i></span>
                   <%= f.email_field :email, autofocus: true, class:'form-control', placeholder:'Email' %>
                 </div>
@@ -33,6 +38,10 @@
                   <% @minimum_password_length %>
                   <% end %>
                   <%= f.password_field :password, autocomplete: "off", class:'form-control', placeholder:'password (min 6 characters)' %>
+                </div>
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-cloud-upload "></i></span>
+                  <%= f.file_field :avatar, class:'form-control btn btn-neutral', name:'add a picture' %>
                 </div>
                 <div class="footer text-center">
                     <%= f.submit "Get Started", class:"btn btn-neutral btn-round btn-lg submit" %>
