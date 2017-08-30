@@ -51,6 +51,7 @@ h6 {
 }
 .contact{
   background-color: #6AB187;
+  color: black;
   border-color: white !important;
 }
 .intro-header {
@@ -148,12 +149,13 @@ h6 {
 .banner {
     padding: 100px 0;
     color: #f8f8f8;
-    background: url(library.jpg) no-repeat center center;
+    background: url(library.png) no-repeat center center;
     background-size: cover;
 }
 
 .banner h2 {
     margin: 0;
+    font-family: 'Lora', serif;
     text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
     font-size: 3em;
 }
