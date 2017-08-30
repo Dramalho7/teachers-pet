@@ -3,22 +3,15 @@ class TeachersController < ApplicationController
 	def index
 		@teacher = Teacher.all
 		@courses = Course.all
-		
+		 
 	end
  
 	def new
-		@teacher = Teacher.new
-		@teachers.avatar = params[:file]
+		
 	end
 
 	def create
-		@teacher = Teacher.create(teacher_params)
-
-		if @teacher.save
-			redirect_to :back, notice: "Teacher has been created"
-		else
-			render :new
-		end
+	
 	end
 
 	def show
