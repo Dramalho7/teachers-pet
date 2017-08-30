@@ -6,14 +6,14 @@ class CoursesController < ApplicationController
 
 	def new  
 		@course = Course.new
-		@course.avatar = params[:file]
+		@courses.avatar = params[:file]
 	end
 
 	def create
 		@current_teacher = current_teacher.id
-		@course = Course.create(name: params[:course][:name], avatar: params[:course][:avatar], teacher_id: @current_teacher)
-		puts @course
-		@course.save
+		@courses = Course.create(name: params[:course][:name], avatar: params[:course][:avatar], teacher_id: @current_teacher)
+		puts @courses
+		@courses.save
 		redirect_to teacher_path(current_teacher)
 	end
 
