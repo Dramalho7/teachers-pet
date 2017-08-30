@@ -22,8 +22,8 @@ class TeachersController < ApplicationController
 
 	def show
 		@teacher = Teacher.find(params[:id])
-
-		@courses = Course.where(teacher_id: @teacher.id).select(:name).distinct
+		@course = Course.where(teacher_id: @teacher.id).select(:name).distinct
+		@courses = Course.all
 		
 		
 

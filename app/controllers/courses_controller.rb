@@ -23,6 +23,14 @@ class CoursesController < ApplicationController
 
 	def show
 		# will get page with students their pics and names
+		@course = Course.find(params[:id])
+		@courses = Course.where(name: @course.name)
+		@studentIds = []
+		@courses.each do |g|
+			@studentIds.push(g.student_id)
+		end
+		@teacher = Teacher.find(current_teacher.id)
+		@students = Student.where(id: @studentIds)
 	end
 
 	def edit
