@@ -7,7 +7,7 @@
   # Character.create(name: 'Luke', movie: movies.first)
 
 Teacher.create(email: 'dramalho7@gmail.com', password: 'Nycda1', password_confirmation: 'Nycda1', name: 'Mr. Ramalho', avatar: 'mr.png')
-Teacher.create(email: 'mip12793@gmail.com', password: 'Nycda1', password_confirmation: 'Nycda1', name: 'Mr. Keating', avatar:'keating.png')
+# Teacher.create(email: 'mip12793@gmail.com', password: 'Nycda1', password_confirmation: 'Nycda1', name: 'Mr. Keating', avatar:'keating.png')
 
 # Student.create(name: 'Dan Ramalho', parent_email:'dramalho7@gmail.com', avatar: 'little.png')
 # Student.create(name: 'Malik Pervez', parent_email:'mip12793@gmail.com', avatar: 'malik.png')

@@ -7,7 +7,7 @@ class TeachersController < ApplicationController
  
 	def new
 		@teacher = Teacher.new
-		@teacher.avatar = params[:file]
+		@teachers.avatar = params[:file]
 	end
 
 	def create

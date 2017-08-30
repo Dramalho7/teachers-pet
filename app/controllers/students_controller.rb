@@ -7,12 +7,12 @@ class StudentsController < ApplicationController
 
 	def new 
 		@student = Student.new
-		@student.avatar = params[:file]
+		@students.avatar = params[:file]
 	end
 
 	def create
 		
-		@student = Student.create(name: params[:student][:name], parents_email: params[:student][:parents_email]);
+		@student = Student.create(name: params[:student][:name], parents_email: params[:student][:parents_email], avatar: params[:student][:avatar]);
 		redirect_to action: 'index'
 	end
 
