@@ -60,9 +60,3 @@ Teacher.create(email: 'dramalho7@gmail.com', password: 'Nycda1', password_confir
 
 # Course.create(name: 'Period 3 Bio', teacher_id: 1, student_id: 1, avatar: 'cell.png')
 # Course.create(name: 'Period 7 Bio', teacher_id: 1, student_id: 16, avatar: 'cell.png')
-
-
-
-
-
-
