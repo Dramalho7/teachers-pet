@@ -5,17 +5,17 @@ class TeachersController < ApplicationController
 		@courses = Course.all
 		
 	end
-
+ 
 	def new
 		@teacher = Teacher.new
-		@teacher.avatar = params[:file]
+		@teachers.avatar = params[:file]
 	end
 
 	def create
-		@teacher = Teacher.create(user_params)
+		@teacher = Teacher.create(teacher_params)
 
 		if @teacher.save
-			redirect_to :back, notice: "User has been created"
+			redirect_to :back, notice: "Teacher has been created"
 		else
 			render :new
 		end
@@ -24,8 +24,10 @@ class TeachersController < ApplicationController
 	def show
 		@teacher = Teacher.find(params[:id])
 
-		@courses = Course.where(teacher_id: @teacher.id).select(:name).distinct
-
+		@course = Course.where(teacher_id: @teacher.id).select(:name).distinct
+		@courses = Course.all
+		
+		
 
 
 		@students = Student.all

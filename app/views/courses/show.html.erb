@@ -1,0 +1,7 @@
+<br><br><br><h1>Hi <%= @teacher.name %></h1>
+
+<h3> your class </h3>
+<% @students.each do |g| %> 
+	<p><%= link_to g.name, student_path(g) %>  
+	<%= image_tag( g.avatar, size: '150x150', class: 'studentPic')%></p>
+<%end%>

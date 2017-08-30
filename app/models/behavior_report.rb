@@ -1,3 +1,3 @@
 class BehaviorReport < ApplicationRecord
-	belongs_to :students, required: true
+	belongs_to :students
 end

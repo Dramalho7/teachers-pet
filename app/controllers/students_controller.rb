@@ -7,12 +7,12 @@ class StudentsController < ApplicationController
 
 	def new 
 		@student = Student.new
-		@student.avatar = params[:file]
+		@students.avatar = params[:file]
 	end
 
 	def create
-		@current_user = current_user.id
-		@student = Student.create(name: params[:student][:name], parents_email: params[:student][:parents_email]);
+		
+		@student = Student.create(name: params[:student][:name], parents_email: params[:student][:parents_email], avatar: params[:student][:avatar]);
 		redirect_to action: 'index'
 	end
 
@@ -25,7 +25,13 @@ class StudentsController < ApplicationController
 	end
 
 	def show
-
+		@teacher = Teacher.find(current_teacher.id)
+		@student = Student.find(params[:id])
+		@courses = Course.where(student_id: params[:id])
+		@grades = Grade.where(student_id: params[:id])
+		@participation = ParticipationReport.where(student_id: params[:id])
+		@behavior = BehaviorReport.where(student_id: params[:id])
+		@attendance = Attendance.where(student_id: params[:id])
 	end
 
 	def edit
