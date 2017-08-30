@@ -42,12 +42,17 @@ h6 {
 .lead {
     font-size: 18px;
     font-weight: 400;
+    font-family: 'Lora', serif;
 }
 
 .btn-default{
-  color:#F4CC70 !important;
+  background-color: #F4CC70 !important;
+  border-color: white !important;
 }
-
+.contact{
+  background-color: #6AB187;
+  border-color: white !important;
+}
 .intro-header {
     padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
     padding-bottom: 50px;
@@ -130,6 +135,8 @@ h6 {
 
 .section-heading {
     margin-bottom: 30px;
+    font-family: 'Shadows Into Light', cursive;
+
 }
 
 .section-heading-spacer {
