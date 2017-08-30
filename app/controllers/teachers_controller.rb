@@ -1,8 +1,9 @@
 class TeachersController < ApplicationController
-	
+
 	def index
 		@teacher = Teacher.all
 		@courses = Course.all
+		
 	end
 
 	def new
@@ -24,8 +25,8 @@ class TeachersController < ApplicationController
 		@teacher = Teacher.find(params[:id])
 
 		@courses = Course.where(teacher_id: @teacher.id).select(:name).distinct
-		
-		
+
+
 
 		@students = Student.all
 	end
@@ -36,5 +37,5 @@ class TeachersController < ApplicationController
 		@courses.destroy_all
 		@teacher.delete
 	end
-	
+
 end
