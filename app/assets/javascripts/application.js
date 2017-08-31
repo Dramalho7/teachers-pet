@@ -23,3 +23,11 @@ $('.new-class-btn').click(function(){
 	$('#new-class').css("display","inherit")
 })
 })
+
+//course page add student button
+$( document ).ready(function() {
+$('.new-student-btn').click(function(){
+	$('#new-student').css("display","inherit")
+	$('.new-student-btn').hide()
+})
+})
