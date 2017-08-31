@@ -25,17 +25,25 @@ class StudentsController < ApplicationController
 		@student = Student.find(params[:id])
 		@courses = Course.where(student_id: params[:id])
 		@grades = Grade.where(student_id: params[:id])
-		@participationTotal = 5
+		# grades logic
+		@gradesTotal = 0.00
+		@grades.each do |g|
+			@gradesTotal = @gradesTotal + Integer(g.score)
+			puts @gradeTotal
+ 		end
+ 		if @grades.length > 0
+ 			(@gradesAvg = (@gradesTotal / (@grades.length))).round(2)
+ 		else
+ 		end
+		# participation grade logic
+		@participationTotal = 0.00
 		@participation = ParticipationReport.where(student_id: params[:id])
-		
 		@participation.each do |g|
 			@participationTotal = (@participationTotal + Integer(g.report))
 		end
-
-		if @participation.length > 0 
-			@participationAvg = (@participationTotal / @participation.length )
-		else 
-			
+		if @participation.length > 0
+			(@participationAvg = (@participationTotal / (@participation.length ) )).round(2)
+		else 	
 		end
 		@behavior = BehaviorReport.where(student_id: params[:id])
 		@attendance = Attendance.where(student_id: params[:id])

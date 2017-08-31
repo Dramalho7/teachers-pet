@@ -2,7 +2,7 @@
 <!-- student name and avatar -->
 <%= @student.name %>
 <%= image_tag(@student.avatar, size: '250x250', class: 'profilePic') %>
-
+<
 
 <!-- forms to create the different reports -->
 <br>
@@ -16,7 +16,7 @@
 	<%= f.text_field :assignment %>
 	<br>
 	<%= f.label :Score %>
-	<%= f.number_field :score, in: 1...100%>
+	<%= f.number_field :score, in: 1...101%>
 	<br>
 	<%= f.label :student_id %>
 	<%= f.number_field :student_id, :value => @student.id %>
@@ -67,7 +67,7 @@
 	<%= f.date_field :date, :value=>Date.today %>
 	<br>
 	<%= f.label :Report %>
-	<%= f.number_field :report, in: 1...5%>
+	<%= f.number_field :report, in: 1...6%>
 	<br>
 	<%= f.label :student_id %>
 	<%= f.number_field :student_id, :value => @student.id %>
@@ -78,7 +78,7 @@
 
 <br><br>
 
-
+<!-- prints out all the report values with a delete method -->
 <% @behavior.each do |g| %>
 	
 	<%=g.report%>
@@ -91,9 +91,11 @@
 	<%= link_to 'Remove Report', g, method: :delete %>
 <% end %>
 <p> --- </p>
+Absent Records: <br>
 <% @attendance.each do |g| %>
-	<% if g.is_present == 't' %>
-		<%=@student.name Was absent on g.date%>
+<br>
+	<% if g.is_present == true %>
+		 <%=g.date%>
 	<%else%>
 		<p><%=@student.name%> You have Perfect Attendance!</p>
 	<%end%>
@@ -107,9 +109,10 @@
 	<%=g.score%>
 	<%= link_to 'Remove Report', g, method: :delete %>
 <% end %>
-
-<p> average Participation score <%=@participationAvg%> </p>
-
-
+<p> --- </p>
+<!-- prints an average for participation and grade -->
+<p> Average Participation score <%=@participationAvg%> </p>
+<p> --- </p>
+<p>Average Grade <%=@gradesAvg%> </p>
 
 
