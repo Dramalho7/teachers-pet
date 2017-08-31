@@ -84,10 +84,31 @@
 	<%=g.report%>
 	<%= link_to 'Remove Report', g, method: :delete %>
 <% end %>
+<p> --- </p>
+<% @participation.each do |g| %>
+	
+	<%=g.report%>
+	<%= link_to 'Remove Report', g, method: :delete %>
+<% end %>
+<p> --- </p>
+<% @attendance.each do |g| %>
+	<% if g.is_present == 't' %>
+		<%=@student.name Was absent on g.date%>
+	<%else%>
+		<p><%=@student.name%> You have Perfect Attendance!</p>
+	<%end%>
+	<%= link_to 'Remove Report', g, method: :delete %>
+<% end %>
+<p> --- </p>
 
+<% @grades.each do |g| %>
+	
+	<%=g.assignment%>
+	<%=g.score%>
+	<%= link_to 'Remove Report', g, method: :delete %>
+<% end %>
 
-
-
+<p> average Participation score <%=@participationAvg%> </p>
 
 
 
