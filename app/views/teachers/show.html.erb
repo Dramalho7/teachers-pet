@@ -1,5 +1,15 @@
 <div id='teacher-profile'>
 	<%= image_tag( @teacher.avatar, size: '250x250', class: 'profilePic')%>
+
+	<%= form_for @teacher do |f| %>  
+		<p>
+			<%= f.label :Avatar %><br>
+			<%= f.file_field :avatar %>
+		</p>
+		<p>
+		    <%= f.submit %>
+		</p>
+	<%end%>
 	<h1><%= @teacher.name %></h1>
 
 	<h3>Add a Course</h3>
