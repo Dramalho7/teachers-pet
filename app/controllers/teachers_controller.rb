@@ -3,33 +3,22 @@ class TeachersController < ApplicationController
 	def index
 		@teacher = Teacher.all
 		@courses = Course.all
-		
+		 
 	end
  
 	def new
-		@teacher = Teacher.new
-		@teachers.avatar = params[:file]
+		
 	end
 
 	def create
 		@teacher = Teacher.create(teacher_params)
-
-		if @teacher.save
-			redirect_to :back, notice: "Teacher has been created"
-		else
-			render :new
-		end
+		@teacher.save
 	end
 
 	def show
 		@teacher = Teacher.find(params[:id])
-
 		@course = Course.where(teacher_id: @teacher.id).select(:name).distinct
 		@courses = Course.all
-		
-		
-
-
 		@students = Student.all
 	end
 
@@ -40,4 +29,15 @@ class TeachersController < ApplicationController
 		@teacher.delete
 	end
 
+	def edit
+		@teachers.avatar = params[:file]
+
+	end
+
+	def update 
+		@teacher = Teacher.find(current_teacher.id)
+		@teacher.avatar = params[:teacher][:avatar]
+		@teacher.save
+		redirect_to teacher_path(current_teacher)
+	end
 end

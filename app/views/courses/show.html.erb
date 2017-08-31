@@ -1,5 +1,30 @@
-<br><br><br><h1>Hi <%= @teacher.name %></h1>
 
+<br><br><br><h1><%= @teacher.name %></h1>
+<h3>Add a Student</h3>
+	<%= image_tag('plus.png', size: '40x40', class: 'new-student-btn') %>
+
+	
+
+	<div id='new-student'>
+		<%= form_for Student.new do |f| %>
+
+		  <p>
+		    <%= f.label :name %>
+		    <%= f.text_field :name %>
+		  </p>
+		  <p>
+		  	<%= f.label :parent_Email %>
+		    <%= f.text_field :parent_email %>
+		  </p>
+		  <p>
+		  	<%= f.label :Avatar %><br>
+			<%= f.file_field :avatar %>
+		  </p>
+		  <p>
+		    <%= f.submit %>
+		  </p>
+		<% end %>
+	</div>
 <h3> your class </h3>
 <% @students.each do |g| %> 
 	<p><%= link_to g.name, student_path(g) %>  

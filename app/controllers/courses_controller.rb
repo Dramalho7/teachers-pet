@@ -12,7 +12,6 @@ class CoursesController < ApplicationController
 	def create
 		@current_teacher = current_teacher.id
 		@courses = Course.create(name: params[:course][:name], avatar: params[:course][:avatar], teacher_id: @current_teacher)
-		puts @courses
 		@courses.save
 		redirect_to teacher_path(current_teacher)
 	end

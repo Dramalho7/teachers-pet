@@ -2,7 +2,8 @@ class StudentsController < ApplicationController
 	
 	def index
 		@student = Student.all
-		@course = course.all
+		@course = Course.all
+		@teachers = Teacher.all
 	end 
 
 	def new 
@@ -11,9 +12,10 @@ class StudentsController < ApplicationController
 	end
 
 	def create
-		
-		@student = Student.create(name: params[:student][:name], parents_email: params[:student][:parents_email], avatar: params[:student][:avatar]);
-		redirect_to action: 'index'
+		@students = Student.create(name: params[:student][:name], parent_email: params[:student][:parent_email], avatar: params[:student][:avatar]);
+		@students.save
+		@students.id 
+		redirect_to courses_path(current_teacher)
 	end
 
 	def destroy
