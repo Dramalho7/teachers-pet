@@ -79,9 +79,11 @@
 <br><br>
 
 
-<% %>
-
-
+<% @behavior.each do |g| %>
+	
+	<%=g.report%>
+	<%= link_to 'Remove Report', g, method: :delete %>
+<% end %>
 
 
 

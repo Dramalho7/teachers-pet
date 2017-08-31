@@ -8,4 +8,11 @@ class AttendancesController < ApplicationController
 		@attendance.save
 		redirect_to student_path(params[:attendance][:student_id])
 	end
+	def destroy
+		@attendance = Attendance.find(params[:id])
+		@id = @attendance.student_id
+		@student = Student.where(id: @id)
+		@attendance.destroy
+		redirect_to student_path(@student.ids)
+	end
 end

@@ -12,6 +12,11 @@ class GradesController < ApplicationController
 	end
 
 	def destroy
+		@grade = Grade.find(params[:id])
+		@id = @grade.student_id
+		@student = Student.where(id: @id)
+		@grade.destroy
+		redirect_to student_path(@student.ids)
 	end
 
 	def show
