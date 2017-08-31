@@ -9,8 +9,7 @@
 	<div id='new-student'>
 		<%= form_for Course.new do |f| %>
 		  <p>
-		  	<%=f.text_field :name, :value => @course.name%>
-
+		  	<%=f.text_field :name, :value => @course.name%> 
 		  <p>
 		  	<%= f.label :Student %><br>
 			<%= f.select :student_id, @allstudents.collect {|x| [x.name, x.id]} %>
