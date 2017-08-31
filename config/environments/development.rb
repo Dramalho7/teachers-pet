@@ -51,4 +51,14 @@ config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  ActionMailer::Base.smtp_settings = {
+  :user_name => 'randallsong',
+  :password => 'lineage2',
+  :domain => 'github.com',
+  :address => 'smtp.sendgrid.net',
+  :port => 587,
+  :authentication => :plain,
+  :enable_starttls_auto => true
+}
 end
