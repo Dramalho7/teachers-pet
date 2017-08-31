@@ -16,7 +16,7 @@
 //=require jquery
 
 //= require bootstrap-sprockets
-
+//= require tabs
 
 $( document ).ready(function() {
 $('.new-class-btn').click(function(){

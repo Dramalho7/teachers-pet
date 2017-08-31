@@ -1,13 +1,14 @@
 class TeachersController < ApplicationController
 
+
 	def index
 		@teacher = Teacher.all
 		@courses = Course.all
-		 
+
 	end
- 
+
 	def new
-		
+
 	end
 
 	def create
@@ -34,7 +35,7 @@ class TeachersController < ApplicationController
 
 	end
 
-	def update 
+	def update
 		@teacher = Teacher.find(current_teacher.id)
 		@teacher.avatar = params[:teacher][:avatar]
 		@teacher.save
