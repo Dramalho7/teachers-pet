@@ -1,32 +1,54 @@
 
 <br><br><br><h1><%= @teacher.name %></h1>
+
 <h3>Add a Student</h3>
+	<!-- the plus button -->
 	<%= image_tag('plus.png', size: '40x40', class: 'new-student-btn') %>
-
 	
-
+	<!-- this is the hidden add student to class field pops up on the click of the plus button above -->
 	<div id='new-student'>
-		<%= form_for Student.new do |f| %>
-
+		<%= form_for Course.new do |f| %>
 		  <p>
-		    <%= f.label :name %>
-		    <%= f.text_field :name %>
-		  </p>
+		  	<%=f.text_field :name, :value => @course.name%> 
 		  <p>
-		  	<%= f.label :parent_Email %>
-		    <%= f.text_field :parent_email %>
-		  </p>
-		  <p>
-		  	<%= f.label :Avatar %><br>
-			<%= f.file_field :avatar %>
+		  	<%= f.label :Student %><br>
+			<%= f.select :student_id, @allstudents.collect {|x| [x.name, x.id]} %>
 		  </p>
 		  <p>
 		    <%= f.submit %>
 		  </p>
 		<% end %>
 	</div>
-<h3> your class </h3>
-<% @students.each do |g| %> 
-	<p><%= link_to g.name, student_path(g) %>  
-	<%= image_tag( g.avatar, size: '150x150', class: 'studentPic')%></p>
-<%end%>
+
+
+<h3> <%=@course.name%> </h3>
+
+
+<!-- this is the area all the students are shown feel free to change style it's gross-->
+<div class='col-xs-2 col-sm-2 col-md-2'>
+</div>
+<div class='students-class-container col-xs-10 col-sm-10 col-md-10'>
+
+	<% @courses.each do |g| %>
+		
+		<% if g.student_id === nil%>
+
+		
+		<%else%>
+		<div class='students-in-class col-xs-6 col-sm-4 col-md-2'>
+				<!-- students name & link to indvidual page -->
+			<p>
+				<%= link_to @allstudents.find(g.student_id).name, student_path(@allstudents.find(g.student_id).id) %>  
+			</p>
+				<!-- students profile pic -->
+			<p>
+				<%= image_tag(@allstudents.find(g.student_id).avatar, size: '120x120', class: 'studentPic')%>
+			</p>
+			<p>
+				<%= link_to 'Remove Student', g, method: :delete %>
+			</p>
+		</div>	
+		<%end%>
+		
+	<%end%>
+</div>

@@ -40,7 +40,7 @@
 
 		<%= image_tag (@courses.find(@courses.where(name: g.name).ids[0]).avatar), size: '150x150' %>
 		<%= link_to g.name, course_path(@courses.find(@courses.where(name: g.name).ids[0])) %>
-
+		
 	<% end %>
 
 </div>

@@ -1,4 +1,115 @@
-<!-- student show -->
-<br><br><br>
+
+<!-- student name and avatar -->
 <%= @student.name %>
 <%= image_tag(@student.avatar, size: '250x250', class: 'profilePic') %>
+
+
+<!-- forms to create the different reports -->
+<br>
+<!-- grade form -->
+<p>Create grades</p>
+<%= form_for Grade.new do |f| %>
+	<%= f.label :Date %>
+	<%= f.date_field :date, :value=>Date.today %>
+	<br>
+	<%= f.label :Assignment_Name %>
+	<%= f.text_field :assignment %>
+	<br>
+	<%= f.label :Score %>
+	<%= f.number_field :score, in: 1...100%>
+	<br>
+	<%= f.label :student_id %>
+	<%= f.number_field :student_id, :value => @student.id %>
+	<br>
+	<%= f.submit %>
+<%end%><br><br>
+
+<!-- create abscense -->
+<p>Mark Absent</p>
+<%= form_for Attendance.new do |f| %>
+	<%= f.label :Date %>
+	<%= f.date_field :date, :value=>Date.today %>
+	<br>
+	<%= f.label :Mark_Absent %>
+	<%= f.check_box :is_present %>
+	
+	<br>
+	<%= f.label :student_id %>
+	<%= f.number_field :student_id, :value => @student.id %>
+	<br>
+	<%= f.submit %>
+<%end%>
+<br><br>
+<!-- create behavior Report -->
+
+<p>Behavior Incident</p>
+<%= form_for BehaviorReport.new do |f| %>
+	<%= f.label :Date %>
+	<%= f.date_field :date, :value=>Date.today %>
+	<br>
+	<%= f.label :Report %>
+	<%= f.text_area :report %>
+	<br>
+	<%= f.label :student_id %>
+	<%= f.number_field :student_id, :value => @student.id %>
+	<br>
+	<%= f.submit %>
+<%end%>
+
+
+<!-- Create Participation Report -->
+
+<br><br>
+
+<p>Participation Report</p>
+<%= form_for ParticipationReport.new do |f| %>
+	<%= f.label :Date %>
+	<%= f.date_field :date, :value=>Date.today %>
+	<br>
+	<%= f.label :Report %>
+	<%= f.number_field :report, in: 1...5%>
+	<br>
+	<%= f.label :student_id %>
+	<%= f.number_field :student_id, :value => @student.id %>
+	<br>
+	<%= f.submit %>
+<%end%>
+
+
+<br><br>
+
+
+<% @behavior.each do |g| %>
+	
+	<%=g.report%>
+	<%= link_to 'Remove Report', g, method: :delete %>
+<% end %>
+<p> --- </p>
+<% @participation.each do |g| %>
+	
+	<%=g.report%>
+	<%= link_to 'Remove Report', g, method: :delete %>
+<% end %>
+<p> --- </p>
+<% @attendance.each do |g| %>
+	<% if g.is_present == 't' %>
+		<%=@student.name Was absent on g.date%>
+	<%else%>
+		<p><%=@student.name%> You have Perfect Attendance!</p>
+	<%end%>
+	<%= link_to 'Remove Report', g, method: :delete %>
+<% end %>
+<p> --- </p>
+
+<% @grades.each do |g| %>
+	
+	<%=g.assignment%>
+	<%=g.score%>
+	<%= link_to 'Remove Report', g, method: :delete %>
+<% end %>
+
+<p> average Participation score <%=@participationAvg%> </p>
+
+
+
+
