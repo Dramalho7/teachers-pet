@@ -1,3 +1,6 @@
+#Ignore this, this is a test, in fact, ignore anything starting with "user"
+
+
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 

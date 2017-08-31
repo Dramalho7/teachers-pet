@@ -39,12 +39,14 @@
                   <%= f.password_field :password, autocomplete: "off", class:'form-control', placeholder:'password (min 6 characters)' %>
                 </div>
 
-               
+
                 <div class="footer text-center">
                     <%= f.submit "Get Started", class:"btn btn-neutral btn-round btn-lg submit" %>
                 </div>
               </div>
             <%end%>
+
+            <%= render "teachers/shared/links" %>
 
           </div>
         </div>

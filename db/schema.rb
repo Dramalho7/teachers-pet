@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20170830195350) do
   create_table "grades", force: :cascade do |t|
     t.date "date"
     t.text "assignment"
-    t.integer "grade"
+    t.integer "score"
     t.integer "student_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20170830195350) do
   create_table "parents", force: :cascade do |t|
     t.text "email"
     t.text "password"
+    t.integer "student_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

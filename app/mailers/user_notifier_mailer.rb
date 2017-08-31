@@ -1,3 +1,5 @@
+#Ignore this, this is a test, in fact, ignore anything starting with "user"
+
 class UserNotifierMailer < ApplicationMailer
 	  default :from => 'any_from_address@example.com'
 
