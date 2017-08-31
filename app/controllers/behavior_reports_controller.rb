@@ -11,6 +11,11 @@ class BehaviorReportsController < ApplicationController
 	end
 
 	def destroy
+		@behavior = BehaviorReport.find(params[:id])
+		@id = @behavior.student_id
+		@student = Student.where(id: @id)
+		@behavior.destroy
+		redirect_to student_path(@student.ids)
 	end
 
 	def edit

@@ -24,10 +24,10 @@ class StudentsController < ApplicationController
 		@teacher = Teacher.find(current_teacher.id)
 		@student = Student.find(params[:id])
 		@courses = Course.where(student_id: params[:id])
-		@grades = Grade.all
-		@participation = ParticipationReport.all
-		@behavior = BehaviorReport.all
-		@attendance = Attendance.all
+		@grades = Grade.where(student_id: params[:id])
+		@participation = ParticipationReport.where(student_id: params[:id])
+		@behavior = BehaviorReport.where(student_id: params[:id])
+		@attendance = Attendance.where(student_id: params[:id])
 	end
 
 	def edit
