@@ -18,13 +18,17 @@ class Teachers::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/edit
   def edit
-     super
+    super
    end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    super
+ end
+
+ def after_update_path_for(resource)
+      teacher_path(resource)
+    end
 
   # DELETE /resource
   # def destroy
