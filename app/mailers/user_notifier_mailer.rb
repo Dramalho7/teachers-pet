@@ -1,7 +1,7 @@
 #Ignore this, this is a test, in fact, ignore anything starting with "user"
 
 class UserNotifierMailer < ApplicationMailer
-	  default :from => 'any_from_address@example.com'
+	  default :from => 'notificationsystem@teachersassistant.com'
 
   # send a signup email to the user, pass in the user object that   contains the user's email address
   def send_signup_email(user)

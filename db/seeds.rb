@@ -11,7 +11,7 @@
 
 # Student.create(name: 'Dan Ramalho', parent_email:'dramalho7@gmail.com', avatar: 'little.png')
 # Student.create(name: 'Malik Pervez', parent_email:'mip12793@gmail.com', avatar: 'malik.png')
-# Student.create(name: 'Randall Song', parent_email:'randallsong149@gmail.com', avatar: 'randall.png')
+Student.create(name: 'Randall Song', parent_email:'randallsong149@gmail.com', avatar: 'randall.png')
 # Student.create(name: 'Davey Patlut', parent_email:'dpatlut@gmail.com', avatar: 'david.png')
 
 # Student.create(name: 'Ro Rudra', parent_email:'rohinir315@gmail.com', avatar: 'ro.png')
