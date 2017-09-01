@@ -50,7 +50,25 @@
   </div>
 </div>
 </div> -->
+<h3>Add a Course</h3>
+<%= image_tag('plus.png', size: '40x40', class: 'new-class-btn') %>
 
+<div id='new-class'>
+	<%= form_for Course.new do |f| %>
+
+		<p>
+			<%= f.label :name %><br>
+			<%= f.text_field :name %>
+		</p>
+		<p>
+			<%= f.label :Avatar %>
+		<%= f.file_field :avatar %>
+		</p>
+		<p>
+			<%= f.submit %>
+		</p>
+	<% end %>
+</div>
 
 <!-- Snippet start -->
 <section>
@@ -67,6 +85,7 @@
 
 <ul>
 <li><span class="glyphicon glyphicon-envelope"></span><%= @teacher.email %></li>
+<li><%= link_to "Sign out", destroy_teacher_session_path, :method => :delete %></li>
 
 </ul>
 
