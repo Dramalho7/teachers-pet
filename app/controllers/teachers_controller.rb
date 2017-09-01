@@ -12,6 +12,7 @@ class TeachersController < ApplicationController
 	end
 
 	def create
+
 		@teacher = Teacher.create(teacher_params)
 		@teacher.save
 	end
@@ -32,6 +33,7 @@ class TeachersController < ApplicationController
 
 	def edit
 		@teachers.avatar = params[:file]
+
 
 	end
 
