@@ -1,101 +1,30 @@
-<!-- <div id='teacher-profile'>
-	<%= image_tag( @teacher.avatar, size: '250x250', class: 'profilePic')%>
-
-	<%= form_for @teacher do |f| %>
-		<p>
-			<%= f.label :Avatar %><br>
-			<%= f.file_field :avatar %>
-		</p>
-		<p>
-		    <%= f.submit %>
-		</p>
-	<%end%>
-	<h1><%= @teacher.name %></h1>
-
-	<h3>Add a Course</h3>
-	<%= image_tag('plus.png', size: '40x40', class: 'new-class-btn') %>
-
-	<div id='new-class'>
-		<%= form_for Course.new do |f| %>
-
-		  <p>
-		    <%= f.label :name %><br>
-		    <%= f.text_field :name %>
-		  </p>
-		  <p>
-		  	<%= f.label :Avatar %>
-			<%= f.file_field :avatar %>
-		  </p>
-		  <p>
-		    <%= f.submit %>
-		  </p>
-		<% end %>
-	</div>
-
-	<%= link_to "Sign out", destroy_teacher_session_path, :method => :delete %>
-
-
-<div id='teacher-courses' class='col-md-12'>
-	<% @course.each do |g| %>
-
-		<%= image_tag (@courses.find(@courses.where(name: g.name).ids[0]).avatar), size: '150x150' %>
-		<%= link_to g.name, course_path(@courses.find(@courses.where(name: g.name).ids[0])) %>
-
-	<% end %>
-
-</div>
-
-  <div class = 'row'>
-
-  </div>
-</div>
-</div> -->
-<!-- <h3>Add a Course</h3>
-<%= image_tag('plus.png', size: '40x40', class: 'new-class-btn') %>
-
-<div id='new-class'>
-	<%= form_for Course.new do |f| %>
-
-		<p>
-			<%= f.label :name %><br>
-			<%= f.text_field :name %>
-		</p>
-		<p>
-			<%= f.label :Avatar %>
-		<%= f.file_field :avatar %>
-		</p>
-		<p>
-			<%= f.submit %>
-		</p>
-	<% end %>
-</div> -->
 
 <!-- Snippet start -->
 <section>
 
 <div class="container" style="margin-top: 30px;">
-<div class="profile-head">
-<div class="col-md- col-sm-4 col-xs-12">
-<%= image_tag( @teacher.avatar, size: '250x250', class: 'profilePic img-responsive')%>
-</div><!--col-md-4 col-sm-4 col-xs-12 close-->
+	<div class="profile-head">
+		<div class="col-md- col-sm-4 col-xs-12">
+			<%= image_tag( @teacher.avatar, size: '250x250', class: 'profilePic img-responsive')%>
+		</div><!--col-md-4 col-sm-4 col-xs-12 close-->
 
 
-<div class="col-md-5 col-sm-5 col-xs-12">
-<h5><%= @teacher.name %></h5>
+		<div class="col-md-5 col-sm-5 col-xs-12">
+			<h5><%= @teacher.name %></h5>
 
-<ul>
-<li><span class="fa fa-envelope fw"></span><%= @teacher.email %></li>
-<li><%= link_to "Sign out", destroy_teacher_session_path, :method => :delete %></li>
+			<ul>
+				<li><span class="fa fa-envelope fw"></span><%= @teacher.email %></li>
+				<li><%= link_to "Sign out", destroy_teacher_session_path, :method => :delete %></li>
 
-</ul>
-
-
-</div><!--col-md-8 col-sm-8 col-xs-12 close-->
+			</ul>
 
 
+		</div><!--col-md-8 col-sm-8 col-xs-12 close-->
 
 
-</div><!--profile-head close-->
+
+
+	</div><!--profile-head close-->
 </div><!--container close-->
 
 
@@ -105,7 +34,7 @@
     <ul class="nav nav-tabs nav-menu" role="tablist">
       <li class="active">
           <a href="#profile" role="tab" data-toggle="tab">
-              <i class="fa fa-male"></i> Profile
+              <i class="fa fa-graduation-cap"></i> Courses
           </a>
       </li>
       <li><a href="#change" role="tab" data-toggle="tab">
@@ -115,96 +44,91 @@
     </ul><!--nav-tabs close-->
 
     <!-- Tab panes -->
-    <div class="tab-content">
-    <div class="tab-pane fade active in" id="profile">
-    <div class="container">
-<div class="col-sm-11" style="float:left;">
-<div class="hve-pro">
-<p>
-	These are all your Courses that you teach.
-</p>
-<%= image_tag('plus.png', size: '40x40', class: 'new-class-btn') %>
-
-<div id='new-class' class='col-sm-12'>
-	<%= form_for Course.new do |f| %>
-
-
-			<%= f.label :name %><br>
-			<%= f.text_field :name, class:'form-control' %>
-
-			<%= f.label :Avatar %>
-		<%= f.file_field :avatar, class:'form-control' %>
-
-			<%= f.submit %>
-
-	<% end %>
-</div>
-</div><!--hve-pro close-->
-</div><!--col-sm-12 close-->
-<br clear="all" />
-<div class="row">
-<div class="col-md-12">
-<h4 class="pro-title">Courses</h4>
-</div><!--col-md-12 close-->
+		<div class="tab-content">
+    	<div class="tab-pane fade active in" id="profile">
+    		<div class="container">
+					<div class="col-sm-11" style="float:left;">
+						<div class="hve-pro">
+							<p>
+								These are all your Courses that you teach.
+							</p>
+							<span class = 'new-class-btn'= ><span class = 'fa fa-plus-circle fa-3x' ></span></span>
+							<div id='new-class' class='col-sm-12'>
+								<%= form_for Course.new do |f| %>
 
 
-<div class="col-md-6">
+								<%= f.label :name %><br>
+								<%= f.text_field :name, class:'form-control' %>
 
-<div class="table-responsive responsiv-table">
-  <table class="table bio-table">
-      <tbody>
-     <tr>
-				<% @course.each do |g| %>
+								<%= f.label :Avatar %>
+								<%= f.file_field :avatar, class:'form-control' %>
 
-	 	 		<td>
-					<%= image_tag (@courses.find(@courses.where(name: g.name).ids[0]).avatar), size: '150x150' %>
-					<%= link_to g.name, course_path(@courses.find(@courses.where(name: g.name).ids[0])) %>
-				</td>
+								<%= f.submit %>
 
-
-		</tr>
-
-	 	 	<% end %>
-
-
-    </tbody>
-  </table>
-  </div><!--table-responsive close-->
-</div><!--col-md-6 close-->
+								<% end %>
+							</div>
+						</div><!--hve-pro close-->
+					</div><!--col-sm-12 close-->
+					<br clear="all" />
+					<div class="row">
+						<div class="col-md-12">
+							<h4 class="pro-title">Courses</h4>
+						</div><!--col-md-12 close-->
 
 
-</div><!--row close-->
+						<div class="col-md-6">
+
+							<div class="table-responsive responsiv-table">
+  							<table class="table bio-table">
+      						<tbody>
+		     						<tr>
+											<% @course.each do |g| %>
+
+			 	 							<td>
+												<%= image_tag (@courses.find(@courses.where(name: g.name).ids[0]).avatar), size: '150x150' %>
+												<%= link_to g.name, course_path(@courses.find(@courses.where(name: g.name).ids[0]))  %>
+											</td>
 
 
+										</tr>
+
+	 	 									<% end %>
 
 
-</div><!--container close-->
-</div><!--tab-pane close-->
+    							</tbody>
+  							</table>
+  						</div><!--table-responsive close-->
+						</div><!--col-md-6 close-->
 
 
-<div class="tab-pane fade" id="change">
-<div class="container fom-main">
-<div class="row">
-<div class="col-sm-12">
-<h2 class="register">Edit Your Profile</h2>
-
-</div><!--col-sm-12 close-->
-
-</div><!--row close-->
-<br />
-<div class="row">
+					</div><!--row close-->
+				</div><!--container close-->
+			</div><!--tab-pane close-->
 
 
-<fieldset>
-	<%= render "teachers/registrations/edit", locals: { resource: @resource, :resource_name => :teacher } %>
+			<div class="tab-pane fade" id="change">
+				<div class="container fom-main">
+					<div class="row">
+						<div class="col-sm-12">
+							<h2 class="register">Edit Your Profile</h2>
+
+						</div><!--col-sm-12 close-->
+					</div><!--row close-->
+					<br />
+
+					<div class="row">
 
 
-</fieldset>
-</form>
-</div><!--row close-->
-</div><!--container close -->
-</div><!--tab-pane close-->
-</div><!--tab-content close-->
+						<fieldset>
+							<%= render "teachers/registrations/edit", locals: { resource: @resource, :resource_name => :teacher } %>
+
+
+						</fieldset>
+
+				</div><!--row close-->
+			</div><!--container close -->
+		</div><!--tab-pane close-->
+	</div><!--tab-content close-->
 </div><!--container close-->
 
 </section><!--section close-->

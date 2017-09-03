@@ -24,8 +24,12 @@ $( document ).on('turbolinks:load',function(){
 $('.new-class-btn').click(function(){
 	$('#new-class').toggle()
 })
+$('.new-class-btn').click(function(){
+	$(this).find('span').toggleClass('fa-minus-circle');
+})
 //course page add student button
 $('.new-student-btn').click(function(){
 	$('#new-student').toggle()
 })
+
 })
