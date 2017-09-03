@@ -16,7 +16,8 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
-
+//= require Chart.bundle
+//= require chartkick
 
 $( document ).ready(function(){
 $('.new-class-btn').click(function(){
