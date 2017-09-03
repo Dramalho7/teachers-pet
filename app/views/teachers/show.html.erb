@@ -50,7 +50,7 @@
   </div>
 </div>
 </div> -->
-<h3>Add a Course</h3>
+<!-- <h3>Add a Course</h3>
 <%= image_tag('plus.png', size: '40x40', class: 'new-class-btn') %>
 
 <div id='new-class'>
@@ -68,7 +68,7 @@
 			<%= f.submit %>
 		</p>
 	<% end %>
-</div>
+</div> -->
 
 <!-- Snippet start -->
 <section>
@@ -109,7 +109,7 @@
           </a>
       </li>
       <li><a href="#change" role="tab" data-toggle="tab">
-          <i class="fa fa-key"></i> Edit Profile
+          <i class="fa fa-key"></i> Account Settings
           </a>
       </li>
     </ul><!--nav-tabs close-->
@@ -123,6 +123,22 @@
 <p>
 	These are all your Courses that you teach.
 </p>
+<%= image_tag('plus.png', size: '40x40', class: 'new-class-btn') %>
+
+<div id='new-class' class='col-sm-12'>
+	<%= form_for Course.new do |f| %>
+
+
+			<%= f.label :name %><br>
+			<%= f.text_field :name, class:'form-control' %>
+
+			<%= f.label :Avatar %>
+		<%= f.file_field :avatar, class:'form-control' %>
+
+			<%= f.submit %>
+
+	<% end %>
+</div>
 </div><!--hve-pro close-->
 </div><!--col-sm-12 close-->
 <br clear="all" />
