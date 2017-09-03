@@ -19,15 +19,13 @@
 //= require Chart.bundle
 //= require chartkick
 
-$( document ).ready(function(){
+//  turbolinks needs to quickfire loads in doc.on for entire app to keep js running smoothly.
+$( document ).on('turbolinks:load',function(){
 $('.new-class-btn').click(function(){
 	$('#new-class').toggle()
 })
-})
-
 //course page add student button
-$(document).ready(function(){
 $('.new-student-btn').click(function(){
 	$('#new-student').toggle()
 })
-});
+})
