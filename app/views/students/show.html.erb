@@ -115,4 +115,5 @@ Absent Records: <br>
 <p> --- </p>
 <p>Average Grade <%=@gradesAvg%> </p>
 
-
+<%= column_chart @grades.group(:assignment).sum(:score) %>
+<
