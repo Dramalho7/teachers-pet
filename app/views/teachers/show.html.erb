@@ -82,22 +82,22 @@
   							<table class="table bio-table">
       						<tbody>
 		     						<tr>
-											<% @course.each do |g| %>
+											<% @course.in_groups(3,false) do |group| %>
+											<%group.each do |g| %>
 
-			 	 							<td>
+											<td>
+												<br />
 												<%= image_tag (@courses.find(@courses.where(name: g.name).ids[0]).avatar), size: '150x150' %>
 												<%= link_to g.name, course_path(@courses.find(@courses.where(name: g.name).ids[0]))  %>
+											<% end %>
 											</td>
-
-
 										</tr>
+										<% end %>
 
-	 	 									<% end %>
 
-
-    							</tbody>
-  							</table>
-  						</div><!--table-responsive close-->
+									</tbody>
+								</table>
+							</div><!--table-responsive close-->
 						</div><!--col-md-6 close-->
 
 
@@ -119,16 +119,16 @@
 					<div class="row">
 
 
-						<fieldset>
+						<fieldset style = 'width: 50%; margin: 0 auto;'>
 							<%= render "teachers/registrations/edit", locals: { resource: @resource, :resource_name => :teacher } %>
 
 
 						</fieldset>
 
-				</div><!--row close-->
-			</div><!--container close -->
-		</div><!--tab-pane close-->
-	</div><!--tab-content close-->
-</div><!--container close-->
+					</div><!--row close-->
+				</div><!--container close -->
+			</div><!--tab-pane close-->
+		</div><!--tab-content close-->
+	</div><!--container close-->
 
 </section><!--section close-->
