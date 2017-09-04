@@ -76,7 +76,7 @@
 						</div><!--col-md-12 close-->
 
 
-						<div class="col-md-6">
+						<div class="col-md-6" style = 'width: 90% !important; margin-left:50px;'>
 
 							<div class="table-responsive responsiv-table">
   							<table class="table bio-table">
@@ -88,7 +88,10 @@
 											<td>
 												<br />
 												<%= image_tag (@courses.find(@courses.where(name: g.name).ids[0]).avatar), size: '150x150' %>
+												<ul>
+
 												<%= link_to g.name, course_path(@courses.find(@courses.where(name: g.name).ids[0]))  %>
+											</ul>
 											<% end %>
 											</td>
 										</tr>
