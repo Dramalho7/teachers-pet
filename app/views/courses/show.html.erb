@@ -4,13 +4,13 @@
 <h3>Add a Student</h3>
 	<!-- the plus button -->
 	<%= image_tag('plus.png', size: '40x40', class: 'new-student-btn') %>
-	
+
 	<!-- this is the hidden add student to class field pops up on the click of the plus button above -->
 	<div id='new-student'>
 		<%= form_for Course.new do |f| %>
-		  <p>
-		  	<%=f.text_field :name, :value => @course.name%> 
-		  <p>
+
+		  	<%=f.hidden_field :name, :value => @course.name%> 
+
 		  	<%= f.label :Student %><br>
 			<%= f.select :student_id, @allstudents.collect {|x| [x.name, x.id]} %>
 		  </p>
@@ -30,15 +30,15 @@
 <div class='students-class-container col-xs-10 col-sm-10 col-md-10'>
 
 	<% @courses.each do |g| %>
-		
+
 		<% if g.student_id === nil%>
 
-		
+
 		<%else%>
 		<div class='students-in-class col-xs-6 col-sm-4 col-md-2'>
 				<!-- students name & link to indvidual page -->
 			<p>
-				<%= link_to @allstudents.find(g.student_id).name, student_path(@allstudents.find(g.student_id).id) %>  
+				<%= link_to @allstudents.find(g.student_id).name, student_path(@allstudents.find(g.student_id).id) %>
 			</p>
 				<!-- students profile pic -->
 			<p>
@@ -47,8 +47,8 @@
 			<p>
 				<%= link_to 'Remove Student', g, method: :delete %>
 			</p>
-		</div>	
+		</div>
 		<%end%>
-		
+
 	<%end%>
 </div>
