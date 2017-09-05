@@ -41,6 +41,27 @@ $('.new-student-btn').click(function(){
 $('.new-student-btn').click(function(){
 	$('#new-student').toggle()
 })
+
+//students page tabs
+$('.new-behavior-btn').click(function(){
+	$('#new-behavior').toggle()
+})
+$('.new-behavior-btn').click(function(){
+	$(this).find('span').toggleClass('fa-minus-circle');
+})
+
+$('.new-participation-btn').click(function(){
+	$('#new-participation').toggle()
+})
+$('.new-participation-btn').click(function(){
+	$(this).find('span').toggleClass('fa-minus-circle');
+})
+
+
+
+
+
+
 //for index scroll bar
 $(window).scroll( function(){
 
