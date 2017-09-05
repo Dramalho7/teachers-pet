@@ -1,11 +1,11 @@
 class StudentsController < ApplicationController
-	
-	def index
-		
-	end 
 
-	def new 
-		
+	def index
+
+	end
+
+	def new
+
 	end
 
 	def create
@@ -45,7 +45,7 @@ class StudentsController < ApplicationController
 		end
 		if @participation.length > 0
 			(@participationAvg = (@participationTotal / (@participation.length ) )).round(2)
-		else 	
+		else
 		end
 		@behavior = BehaviorReport.where(student_id: params[:id])
 		@attendance = Attendance.where(student_id: params[:id])
@@ -57,10 +57,11 @@ class StudentsController < ApplicationController
 
 	def update
 		@student = Student.find(params[:id])
-		@student.name = params[:student][:name]
+
+		@student.update_attributes(name: params[:student][:name], parent_email: params[:student][:parent_email])
 		@student.save
-		# redirect_to action: 'index'
-		# puts @student
+
+		redirect_to @student
 
 	end
 
