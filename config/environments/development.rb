@@ -39,10 +39,10 @@ config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   :address        => 'smtp.sendgrid.net',
   :port           => '587',
   :authentication => :plain,
-  :user_name      =>  ENV['randysong'],
-  :password       =>  ENV['lineage2'],
-  :domain         => 'github.com',
-  :enable_starttls_auto => true
+  :user_name      =>  ENV['dramalho7'],
+  :password       =>  ENV['Troldan7'],
+  :domain         => 'none.com',
+  :enable_starttls_auto => true 
   }
 
   
