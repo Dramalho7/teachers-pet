@@ -119,8 +119,17 @@ Absent Records: <br>
 <p> --- </p>
 <p>Average Grade <%=@gradesAvg%> </p>
 
-<<<<<<< HEAD
-=======
+
+
 <%= column_chart @grades.group(:assignment).sum(:score) %>
 <%= scatter_chart @participation.group_by_day(:created_at).maximum(:report).count  %>
->>>>>>> f749e67a9ecd01dca835b2502ceacea4b431f7fa
+
+
+
+
+
+
+
+
+
+

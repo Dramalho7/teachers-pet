@@ -25,7 +25,8 @@ class StudentsController < ApplicationController
 		@student = Student.find(params[:id])
 		@courses = Course.where(student_id: params[:id])
 		@grades = Grade.where(student_id: params[:id])
-		Groupdate.dates = false
+
+		Groupdate.dates = false                     
 		# grades logic
 		@gradesTotal = 0.0
 		# @grades.each do |g|
