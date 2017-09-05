@@ -16,4 +16,5 @@ class ParticipationReportsController < ApplicationController
 		redirect_to student_path(@student.ids)
 	end
 
+	
 end

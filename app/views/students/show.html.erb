@@ -12,7 +12,7 @@
 			<h5><%= @student.name %></h5>
 
 			<ul>
-				<li><span class="fa fa-envelope fw"></span>Parent's Email: <%= @student.parent_email %></li>
+				<li><span class="fa fa-envelope fw"></span><%= link_to "Email Parent", parent_path(@student.id) %> </li>
 				<li><%= link_to "Back to Profile", teacher_session_path, :method => :get %></li>
 
 			</ul>
