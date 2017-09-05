@@ -22,6 +22,8 @@ class TeachersController < ApplicationController
 		@course = Course.where(teacher_id: @teacher.id).select(:name).distinct
 		@courses = Course.all
 		@students = Student.all
+	
+
 	end
 
 	def destroy

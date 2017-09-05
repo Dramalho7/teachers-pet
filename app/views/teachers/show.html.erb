@@ -37,10 +37,14 @@
               <i class="fa fa-graduation-cap"></i> Courses
           </a>
       </li>
-      <li><a href="#change" role="tab" data-toggle="tab">
-          <i class="fa fa-key"></i> Account Settings
+      <li><a href="#allstudents" role="tab" data-toggle="tab">
+          <i class="fa fa-user"></i> All Students
           </a>
       </li>
+			<li><a href="#account" role="tab" data-toggle="tab">
+					<i class="fa fa-key"></i> Account
+					</a>
+			</li>
     </ul><!--nav-tabs close-->
 
     <!-- Tab panes -->
@@ -100,6 +104,19 @@
 
 									</tbody>
 								</table>
+							</div><!--This area is to respond to a callback to courses show partial when teacher selects a course-->
+							<div class="table-responsive responsiv-table-hidden">
+  							<table class="table bio-table">
+      						<tbody>
+										<!-- <p>
+											trying to render courses view here
+										</p> -->
+
+
+
+
+									</tbody>
+								</table>
 							</div><!--table-responsive close-->
 						</div><!--col-md-6 close-->
 
@@ -108,8 +125,70 @@
 				</div><!--container close-->
 			</div><!--tab-pane close-->
 
+			<div class="tab-pane fade" id="allstudents">
+				<div class="container fom-main">
+					<div class="col-sm-11" style="float:left;">
+						<div class="hve-pro">
+							<p>
+								These are all your Students.
+							</p>
+							<span class = 'new-student-btn'= ><span class = 'fa fa-plus-circle fa-3x' ></span></span>
+							<div id='new-student' class='col-sm-12'>
+								<%= form_for Student.new do |f| %>
 
-			<div class="tab-pane fade" id="change">
+
+								<%= f.label :name %><br>
+								<%= f.text_field :name, class:'form-control' %>
+
+								<%= f.label :parent_email %>
+								<%= f.text_field :parent_email, class:'form-control' %>
+
+								<%= f.label :Avatar %>
+								<%= f.file_field :avatar, class:'form-control' %>
+
+								<%= f.submit %>
+
+								<% end %>
+							</div>
+						</div><!--hve-pro close-->
+					</div><!--col-sm-12 close-->
+					<div class="row">
+					</div><!--row close-->
+					<br />
+				<div class = 'col-md-6',style = 'width: 90% !important; margin-left:50px;'>
+
+
+					<div class="row">
+						<table class="table bio-table">
+							<tbody>
+								<tr>
+									<% @students.in_groups(3,false) do |group| %>
+									<%group.each do |g| %>
+
+									<td>
+										<br />
+										<%= image_tag (@students.find(@students.where(name: g.name).ids[0]).avatar), size: '150x150' %>
+										<ul>
+
+										<%= link_to g.name, student_path(@students.find(@students.where(name: g.name).ids[0]))  %>
+									</ul>
+									<% end %>
+									</td>
+								</tr>
+								<% end %>
+
+
+							</tbody>
+						</table>
+
+
+
+					</div><!--row close-->
+				</div>
+				</div><!--container close -->
+			</div>
+
+			<div class="tab-pane fade" id="account">
 				<div class="container fom-main">
 					<div class="row">
 						<div class="col-sm-12">

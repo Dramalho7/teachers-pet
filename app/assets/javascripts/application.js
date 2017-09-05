@@ -31,6 +31,16 @@ $('.new-class-btn').click(function(){
 $('.new-student-btn').click(function(){
 	$('#new-student').toggle()
 })
+$('.new-student-btn').click(function(){
+	$('#new-student').toggle()
+})
+$('.new-student-btn').click(function(){
+	$(this).find('span').toggleClass('fa-minus-circle');
+})
+//course page add student button
+$('.new-student-btn').click(function(){
+	$('#new-student').toggle()
+})
 //for index scroll bar
 $(window).scroll( function(){
 
