@@ -23,7 +23,7 @@
 </div><!--container close-->
 
 
-<div id="sticky" class="container">
+<div id="sticky" class="container tabpadding">
 
     <!-- Nav tabs -->
     <ul class="nav nav-tabs nav-menu" role="tablist">
@@ -83,7 +83,7 @@
 					<br clear="all" />
 					<div class="row">
 						<div class="col-md-12">
-							<h4 class="pro-title">Grades</h4>
+							<h4 class="pro-title"><%=@student.name%>'s Grades</h4>
 						</div><!--col-md-12 close-->
 
 
@@ -94,12 +94,21 @@
       						<tbody>
 		     						<tr>
 											<% @grades.each do |g| %>
-											<td>
-												<%=g.assignment%>
-												<%=g.score%>
+											<p>
+
+												<h3 id= assignment>Assignment: <%=g.assignment%></h3>
+
+												<li style= 'list-style:none;'>
+													grade: <%=g.score%>
+												</li>
+
+
 												<%= link_to 'Remove Report', g, method: :delete %>
 												<% end %>
-											</td>
+											</p>
+
+
+
 											<td>
 												<p>Average Grade <%=@gradesAvg%> </p>
 
@@ -142,7 +151,7 @@
 
 									<br>
 									<%= f.label :student_id %>
-									<%= f.number_field :student_id, :value => @student.id %>
+									<%= f.hidden_field :student_id, :value => @student.id %>
 									<br>
 									<%= f.submit %>
 								<%end%>
@@ -164,7 +173,7 @@
 									<% @attendance.each do |g| %>
 									<br>
 										<% if g.is_present == true %>
-											 <%=g.date%>
+											 Absent the date of: <%=g.date%>
 										<%else%>
 											<p><%=@student.name%> You have Perfect Attendance!</p>
 										<%end%>
@@ -203,7 +212,7 @@
 									<%= f.text_area :report %>
 									<br>
 									<%= f.label :student_id %>
-									<%= f.number_field :student_id, :value => @student.id %>
+									<%= f.hidden_field :student_id, :value => @student.id %>
 									<br>
 									<%= f.submit %>
 								<%end%>
@@ -259,7 +268,7 @@
 									<%= f.number_field :report, in: 1...6%>
 									<br>
 									<%= f.label :student_id %>
-									<%= f.number_field :student_id, :value => @student.id %>
+									<%= f.hidden_field :student_id, :value => @student.id %>
 									<br>
 									<%= f.submit %>
 								<%end%>

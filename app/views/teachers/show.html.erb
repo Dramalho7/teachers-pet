@@ -28,7 +28,7 @@
 </div><!--container close-->
 
 
-<div id="sticky" class="container">
+<div id="sticky" class="container tabpadding">
 
     <!-- Nav tabs -->
     <ul class="nav nav-tabs nav-menu" role="tablist">
@@ -94,7 +94,8 @@
 												<%= image_tag (@courses.find(@courses.where(name: g.name).ids[0]).avatar), size: '150x150' %>
 												<ul>
 
-												<%= link_to g.name, course_path(@courses.find(@courses.where(name: g.name).ids[0]))  %>
+												<%= link_to g.name, course_path(@courses.find(@courses.where(name: g.name).ids[0]), class: 'coursepartial', remote:true)  %>
+
 											</ul>
 											<% end %>
 											</td>
@@ -108,12 +109,6 @@
 							<div class="table-responsive responsiv-table-hidden">
   							<table class="table bio-table">
       						<tbody>
-										<!-- <p>
-											trying to render courses view here
-										</p> -->
-
-
-
 
 									</tbody>
 								</table>

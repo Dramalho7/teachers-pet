@@ -42,6 +42,9 @@ $('.new-student-btn').click(function(){
 	$('#new-student').toggle()
 })
 
+
+
+
 //students page tabs
 $('.new-behavior-btn').click(function(){
 	$('#new-behavior').toggle()
