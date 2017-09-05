@@ -10,24 +10,67 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
+//= require bootstrap-sprockets
+//= require tabs
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
-//=require jquery
+//= require Chart.bundle
+//= require chartkick
 
-//= require bootstrap-sprockets
-//= require tabs
-
-$( document ).ready(function() {
+//  turbolinks needs to quickfire loads in doc.on for entire app to keep js running smoothly.
+$( document ).on('turbolinks:load',function(){
 $('.new-class-btn').click(function(){
-	$('#new-class').css("display","inherit")
+	$('#new-class').toggle()
 })
+$('.new-class-btn').click(function(){
+	$(this).find('span').toggleClass('fa-minus-circle');
 })
-
 //course page add student button
-$( document ).ready(function() {
 $('.new-student-btn').click(function(){
-	$('#new-student').css("display","inherit")
-	$('.new-student-btn').hide()
+	$('#new-student').toggle()
 })
+//for index scroll bar
+$(window).scroll( function(){
+
+  //get scroll position
+  var topWindow = $(window).scrollTop();
+  //multipl by 1.5 so the arrow will become transparent half-way up the page
+  var topWindow = topWindow * 1.5;
+
+  //get height of window
+  var windowHeight = $(window).height();
+
+  //set position as percentage of how far the user has scrolled
+  var position = topWindow / windowHeight;
+  //invert the percentage
+  position = 1 - position;
+
+  //define arrow opacity as based on how far up the page the user has scrolled
+  //no scrolling = 1, half-way up the page = 0
+  $('.arrow-wrap').css('opacity', position);
+
+});
+
+
+
+
+
+
+//Code stolen from css-tricks for smooth scrolling:
+$(function() {
+  $('a[href*=content]:not([href=index])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});
 })

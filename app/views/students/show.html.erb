@@ -1,12 +1,15 @@
 
 <!-- student name and avatar -->
-<%= @student.name %>
 
+<div class = 'col-md-2'>
+	<h1><%= @student.name %></h1>
+	<%= image_tag(@student.avatar, size: '250x250', class: 'profilePic') %>
+</div>
 
 
 <!-- forms to create the different reports -->
-<br>
 <!-- grade form -->
+<div class = 'col-md-6'>
 <p>Create grades</p>
 <%= form_for Grade.new do |f| %>
 	<%= f.label :Date %>
@@ -116,3 +119,8 @@ Absent Records: <br>
 <p> --- </p>
 <p>Average Grade <%=@gradesAvg%> </p>
 
+<<<<<<< HEAD
+=======
+<%= column_chart @grades.group(:assignment).sum(:score) %>
+<%= scatter_chart @participation.group_by_day(:created_at).maximum(:report).count  %>
+>>>>>>> f749e67a9ecd01dca835b2502ceacea4b431f7fa

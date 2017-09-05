@@ -1,73 +1,54 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(Teacher.new, as: :teacher, url: registration_path(:teacher), html: { method: :put }) do |f| %>
+  <%= form_for(Teacher.new, as: :teacher, url: registration_path(:teacher), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
-
-  <!-- <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, class:'form-control' %>
-  </div> -->
-
-
-
-  <!-- <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off", class:'form-control' %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div> -->
-
-  <!-- <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off", class:'form-control' %>
-  </div> -->
-
-  <!-- <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off", class:'form-control' %>
-  </div> -->
-
-
-
-
-
 
 <div class="form-group col-md-12">
   <label class="col-md-10 control-label">Email</label>
-  <div class="col-md-12 inputGroupContainer">
-  <div class="input-group">
+    <div class="col-md-12 inputGroupContainer">
+      <div class="input-group">
   <%= f.email_field :email, autofocus: true, class:'form-control', style:'color:black !important;' %>
+
+
+     </div>
+  </div>
+</div>
+<div class="form-group col-md-12">
+  <label class="col-md-10 control-label">Name</label>
+    <div class="col-md-12 inputGroupContainer">
+      <div class="input-group">
+  <%= f.text_field :name, autofocus: true, class:'form-control', style:'color:black !important;' %>
 
 
     </div>
   </div>
 </div>
-<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-  <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-<% end %>
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+  <div>
+     waiting confirmation for: <%= resource.unconfirmed_email %>
+  </div>
+  <% end %>
 <!-- Text input-->
 
 <div class="form-group col-md-12">
   <label class="col-md-10 control-label" >Password</label>
-    <div class="col-md-12 inputGroupContainer">
-    <div class="input-group">
-      <%= f.password_field :password, autocomplete: "off", class:'form-control', style:'color:black !important;' %>
-      <% if @minimum_password_length %>
-        <br />
-        <em><%= @minimum_password_length %> characters minimum</em>
-      <% end %>
+      <div class="col-md-12 inputGroupContainer">
+        <div class="input-group">
+          <%= f.password_field :password, autocomplete: "off", class:'form-control', style:'color:black !important;' %>
+          <% if @minimum_password_length %>
+          <br />
+          <em><%= @minimum_password_length %> characters minimum</em>
+          <% end %>
+      </div>
     </div>
-  </div>
 </div>
 
 <!-- Text input-->
-       <div class="form-group col-md-12">
+<div class="form-group col-md-12">
   <label class="col-md-10 control-label">Password Confirmation</label>
     <div class="col-md-12 inputGroupContainer">
-    <div class="input-group">
-  <%= f.password_field :password_confirmation, autocomplete: "off", class:'form-control', style:'color:black !important;' %>
+      <div class="input-group">
+        <%= f.password_field :password_confirmation, autocomplete: "off", class:'form-control', style:'color:black !important;' %>
 
     </div>
   </div>
@@ -79,36 +60,36 @@
 <div class="form-group col-md-12">
   <label class="col-md-10 control-label">Current Password</label>
     <div class="col-md-12 inputGroupContainer">
-    <div class="input-group">
-  <%= f.password_field :current_password, autocomplete: "off", class:'form-control', style:'color:black !important;' %>
+      <div class="input-group">
+        <%= f.password_field :current_password, autocomplete: "off", class:'form-control', style:'color:black !important;' %>
 
     </div>
   </div>
 </div>
 
 <div class="col-md-12 text-left">
-<div class="uplod-picture">
-<span class="btn btn-default uplod-file">
-Avatar  <%= f.file_field :avatar %>
-</span>
-</div><!--uplod-picture close-->
+  <div class="uplod-picture">
+    <span class="btn btn-default uplod-file">
+      <span class = 'network-name' alt = 'upload picture'><i class = 'fa fa-upload'><%= f.file_field :avatar %></i></span>
+
+    </span>
+  </div><!--uplod-picture close-->
 </div><!--col-md-12 close-->
 
+
 <div class="form-group col-md-10">
   <div class="col-md-6">
-    <button type="submit" class="btn btn-warning submit-button" >Save</button>
-    <button type="submit" class="btn btn-warning submit-button" >Cancel</button>
-
+    <button type="submit" class="btn btn-warning submit-button teachsubmit" >Save</button>
+    <button type="submit" class="btn btn-warning submit-button teachsubmit" >Cancel</button>
   </div>
 </div>
-<% end %>
+    <% end %>
 <div class="form-group col-md-10">
-  <div class="col-md-6">
+  <div class="col-md-6 ">
 
-<h3>Cancel my account</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(:teacher), data: { confirm: "Are you sure?" }, method: :delete %></p>
+    <p id = 'cancel'>Unhappy? <%= button_to "Cancel my account", registration_path(:teacher), data: { confirm: "Are you sure?" }, method: :delete, style: 'margin-left: 145px;' %></p>
 
 <%= link_to "Back", :back %>
-</div>
+  </div>
 </div>
