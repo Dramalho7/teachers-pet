@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 gem 'groupdate'
+gem 'sendgrid-ruby'
 gem 'rails_12factor', group: :production
 gem 'countries'
 gem 'faker'

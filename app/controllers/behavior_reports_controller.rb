@@ -1,3 +1,5 @@
+include SendGrid
+
 class BehaviorReportsController < ApplicationController
 
 	def new 
@@ -6,23 +8,21 @@ class BehaviorReportsController < ApplicationController
 
 	def create
 		@behaviorReport = BehaviorReport.create(date: params[:behavior_report][:date], report: params[:behavior_report][:report], student_id: params[:behavior_report][:student_id])
-		@studentid = params[:behavior_report][:student_id]
-		@behaviorReport.save
-		puts @studentid
-		redirect_to student_path(params[:behavior_report][:student_id])
+		@student = Student.find(params[:behavior_report][:student_id])
+		@teacher = current_teacher.name
 
-		respond_to do |format|
-      	if @behaviorReport.save
-        # Tell the UserMailer to send a welcome email after save
-        	ParentmailerMailer.send_status_email(@students).deliver
- 
-        	format.html {redirect_to student_path(@studentid), notice: 'Behavior Report Sent'}
-        	format.json {redirect_to student_path(@studentid), status: :created }
-      	else
-        	format.html { render action: 'new' }
-       		format.json { render json: @student.errors, status: :unprocessable_entity }
-      end
-    end
+		from = Email.new(email: 'test@example.com')
+		to = Email.new(email: @student.parent_email)
+		subject = 'Guardian of' + ' ' + @student.name 
+		content = Content.new(type: 'text/plain', value: 'There has been an incident at school today' + ' ' + @behaviorReport.report + ' ' + 'if you have any questions, please let me know. Sincerely,' + ' ' + @teacher)
+		mail = SendGrid::Mail.new(from, subject, to, content)
+
+		sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
+		response = sg.client.mail._('send').post(request_body: mail.to_json)
+		puts response.status_code
+		puts response.body
+		puts response.headers
+		redirect_to student_path(@student.id)
 	end
 
 	def destroy
