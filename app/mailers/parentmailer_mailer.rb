@@ -8,4 +8,5 @@ class ParentmailerMailer < ApplicationMailer
     mail( :to => @student.parent_email, :subject => 'Status Email' )
     puts @student
   end
+
 end
