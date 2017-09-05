@@ -25,12 +25,13 @@ class StudentsController < ApplicationController
 		@student = Student.find(params[:id])
 		@courses = Course.where(student_id: params[:id])
 		@grades = Grade.where(student_id: params[:id])
+		Groupdate.dates = false
 		# grades logic
-		@gradesTotal = 0.00
-		@grades.each do |g|
-			@gradesTotal = @gradesTotal + Integer(g.score)
-			puts @gradeTotal
- 		end
+		@gradesTotal = 0.0
+		# @grades.each do |g|
+		# 	@gradesTotal = @gradesTotal + Integer(g.score)
+		# 	puts @gradeTotal
+ 	# 	end
  		if @grades.length > 0
  			(@gradesAvg = (@gradesTotal / (@grades.length))).round(2)
  		else
@@ -58,7 +59,9 @@ class StudentsController < ApplicationController
 
 		@student.update_attributes(name: params[:student][:name], parent_email: params[:student][:parent_email])
 		@student.save
+
 		redirect_to @student
+
 	end
 
 end

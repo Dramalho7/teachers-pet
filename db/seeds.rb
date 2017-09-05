@@ -9,6 +9,7 @@
 # Teacher.create(email: 'dramalho7@gmail.com', password: 'Nycda1', password_confirmation: 'Nycda1', name: 'Mr. Ramalho', avatar: 'mr.png')
 # Teacher.create(email: 'mip12793@gmail.com', password: 'Nycda1', password_confirmation: 'Nycda1', name: 'Mr. Keating', avatar:'keating.png')
 
+
 Student.create(name: 'Dan Ramalho', parent_email:'dramalho7@gmail.com', avatar: 'little.png')
 Student.create(name: 'Malik Pervez', parent_email:'mip12793@gmail.com', avatar: 'malik.png')
 Student.create(name: 'Randall Song', parent_email:'randallsong149@gmail.com', avatar: 'randall.png')
@@ -28,6 +29,7 @@ Student.create(name: 'Geoffrey Barratheon', parent_email:'test@gmail.com', avata
 Student.create(name: 'Rickon Stark', parent_email:'test@gmail.com', avatar: 'rickon.png')
 Student.create(name: 'Theon Grayjoy', parent_email:'test@gmail.com', avatar: 'theon.png')
 Student.create(name: 'Ramsey Bolton', parent_email:'test@gmail.com', avatar: 'ramsey.png')
+
 
 
 # Course.create(name: 'Period 1 Bio', teacher_id: 1, student_id: 2, avatar: 'cell.png')
