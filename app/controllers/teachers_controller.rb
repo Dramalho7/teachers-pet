@@ -22,9 +22,17 @@ class TeachersController < ApplicationController
 		@course = Course.where(teacher_id: @teacher.id).select(:name).distinct
 		@courses = Course.all
 		@students = Student.all
-	
+
 
 	end
+
+	# def from_course
+	# 	@course = Course.where(teacher_id: @teacher.id).select(:name).distinct
+	# 	respond_to do |format|
+	# 		format.js
+	# 	end
+	# end
+
 
 	def destroy
 		@teacher = current_teacher.id
