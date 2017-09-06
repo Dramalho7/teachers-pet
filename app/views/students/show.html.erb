@@ -51,95 +51,88 @@
     </ul><!--nav-tabs close-->
 
     <!-- Tab panes -->
-		<div class="tab-content">
+	<div class="tab-content">
     	<div class="tab-pane fade active in" id="profile">
     		<div class="container addGradeBar">
-					<div class="col-sm-12 addGradeBar" >
-						<div class="hve-pro">
-							<p>
-								Add Grades to the book
-							</p>
-							<span class = 'new-class-btn'= ><span class = 'fa fa-plus-circle fa-3x' ></span></span>
-							<div id='new-class' class='col-sm-12'>
-								<p>Create grades</p>
-								<%= form_for Grade.new do |f| %>
-									<%= f.label :Date %>
-									<%= f.date_field :date, :value=>Date.today %>
-									<br>
-									<%= f.label :Assignment_Name %>
-									<%= f.text_field :assignment %>
-									<br>
-									<%= f.label :Score %>
-									<%= f.number_field :score, in: 1...101%>
-									<br>
+				<div class="col-sm-12 addGradeBar" >
+					<div class="hve-pro">
+						<p>
+							Add Grades to the book
+						</p>
+						<span class = 'new-class-btn'= ><span class = 'fa fa-plus-circle fa-3x' ></span></span>
+						<div id='new-class' class='col-sm-12'>
+							<p>Create grades</p>
+							<%= form_for Grade.new do |f| %>
+								<%= f.label :Date %>
+								<%= f.date_field :date, :value=>Date.today %>
+								<br>
+								<%= f.label :Assignment_Name %>
+								<%= f.text_field :assignment %>
+								<br>
+								<%= f.label :Score %>
+								<%= f.number_field :score, in: 1...101%>
+								<br>
 
-									<%= f.hidden_field :student_id, :value => @student.id %>
-									<br>
-									<%= f.submit %>
-								<%end%><br><br>
-							</div>
-						</div><!--hve-pro close-->
-					</div><!--col-sm-12 close-->
-					<br clear="all" />
-					<div class="row">
-						<div class="col-md-12">
-							<h4 class="pro-title">Grades</h4>
-						</div><!--col-md-12 close-->
+								<%= f.hidden_field :student_id, :value => @student.id %>
+								<br>
+								<%= f.submit %>
+							<%end%><br><br>
+						</div>
+					</div><!--hve-pro close-->
+				</div><!--col-sm-12 close-->
+				<br clear="all" />
+				<div class="row">
+					<div class="col-md-12">
+						<h4 class="pro-title">Grades</h4>
+					</div><!--col-md-12 close-->
 
 
-						<div class="col-md-6" style = 'width: 90% !important; margin-left:50px;'>
+					<div class="col-md-6" style = 'width: 90% !important; margin-left:50px;'>
 
-							<div class="table-responsive responsiv-table">
+						<div class="table-responsive responsiv-table">
   							<table class="table bio-table">
-      						<tbody>
-	     						<tr>
-									<td>
-										<h3 style = 'text-align: center;'>Average Grade <%=@gradesAvg%> </h3>
-									</td>
-								</tr>
-							</tbody>
-							<div class=col-md-12>
-								<%= column_chart @grades.group(:assignment).sum(:score) %>
-							</div>
-						</table>
-					</div><!--This area is to respond to a callback to courses show partial when teacher selects a course-->
-				</div><!--col-md-6 close-->
+	      						<tbody>
+		     						<tr>
+										<td>
+											<h3 style = 'text-align: center;'>Average Grade <%=@gradesAvg%> </h3>
+										</td>
+									</tr>
+								</tbody>
+								<div class=col-md-12>
+									<%= column_chart @grades.group(:assignment).sum(:score) %>
+								</div>
+							</table>
+						</div>
+					</div><!--col-md-6 close-->
+				</div><!--row close-->
+			</div><!--container close-->
+		</div><!--tab-pane close-->
 
-
-					</div><!--row close-->
-				</div><!--container close-->
-			</div><!--tab-pane close-->
-
-			<div class="tab-pane fade" id="allstudents">
-				<div class="container addGradeBar fom-main">
-					<div class="col-sm-12 addGradeBar" style="float:left;">
-						<div class="hve-pro">
-							<p>
-								Mark Attendance
-							</p>
-							<span class = 'new-student-btn'= ><span class = 'fa fa-plus-circle fa-3x' ></span></span>
-							<div id='new-student' class='col-sm-12'>
-								<%= form_for Attendance.new do |f| %>
-									<%= f.label :Date %>
-									<%= f.date_field :date, :value=>Date.today %>
-									<br>
-									<%= f.label :Mark_Absent %>
-									<%= f.check_box :is_present %>
-									<br>
-								
-									<%= f.hidden_field :student_id, :value => @student.id %>
-									<br>
-									<%= f.submit %>
-								<%end%>
-							</div>
-						</div><!--hve-pro close-->
-					</div><!--col-sm-12 close-->
-					<div class="row">
-					</div><!--row close-->
-					<br />
+		<div class="tab-pane fade" id="allstudents">
+			<div class="container addGradeBar fom-main">
+				<div class="col-sm-12 addGradeBar" style="float:left;">
+					<div class="hve-pro">
+						<p>
+							Mark Attendance
+						</p>
+						<span class = 'new-student-btn'= ><span class = 'fa fa-plus-circle fa-3x' ></span></span>
+						<div id='new-student' class='col-sm-12'>
+							<%= form_for Attendance.new do |f| %>
+								<%= f.label :Date %>
+								<%= f.date_field :date, :value=>Date.today %>
+								<br>
+								<%= f.label :Mark_Absent %>
+								<%= f.check_box :is_present %>
+								<br>
+							
+								<%= f.hidden_field :student_id, :value => @student.id %>
+								<br>
+								<%= f.submit %>
+							<%end%>
+						</div>
+					</div><!--hve-pro close-->
+				</div><!--col-sm-12 close-->
 				<div class = 'col-md-6',style = 'width: 90% !important; margin-left:50px;'>
-
-
 					<div class="row">
 						<table class="table bio-table">
 							<tbody>
@@ -156,82 +149,65 @@
 									
 								</td>
 								</tr>
-
-
-
 							</tbody>
 						</table>
-
-
-
 					</div><!--row close-->
 				</div>
-				</div><!--container close -->
-			</div>
+			</div><!--container close -->
+		</div>
 
-			<div class="tab-pane fade" id="behavior">
-				<div class="container addGradeBar fom-main">
-					<div class="col-sm-12 addGradeBar" style="float:left;">
-						<div class="hve-pro">
-							<p>
-								Incident Report
-							</p>
-							<span class = 'new-behavior-btn'= ><span class = 'fa fa-plus-circle fa-3x' ></span></span>
-							<div id='new-behavior' class='col-sm-12'>
-								<%= form_for BehaviorReport.new do |f| %>
-									<%= f.label :Date %>
-									<%= f.date_field :date, :value=>Date.today %>
-									<br>
-									<%= f.label :Report %>
-									<%= f.text_area :report %>
-									<br>
-									<%= f.number_field :student_id, :value => @student.id %>
-									<br>
-									<%= f.submit %>
-								<%end%>
+		<div class="tab-pane fade" id="behavior">
+			<div class="container addGradeBar fom-main">
+				<div class="col-sm-12 addGradeBar" style="float:left;">
+					<div class="hve-pro">
+						<p>
+							Incident Report
+						</p>
+						<span class = 'new-behavior-btn'= ><span class = 'fa fa-plus-circle fa-3x' ></span></span>
+						<div id='new-behavior' class='col-sm-12'>
+							<%= form_for BehaviorReport.new do |f| %>
+								<%= f.label :Date %>
+								<%= f.date_field :date, :value=>Date.today %>
+								<br>
+								<%= f.label :Report %>
+								<%= f.text_area :report %>
+								<br>
+								<%= f.number_field :student_id, :value => @student.id %>
+								<br>
+								<%= f.submit %>
+							<%end%>
 
-							</div>
-						</div><!--hve-pro close-->
-					</div><!--col-sm-12 close-->
-					<div class="row">
-					</div><!--row close-->
-					<br />
+						</div>
+					</div><!--hve-pro close-->
+				</div><!--col-sm-12 close-->
 				<div class = 'col-md-6',style = 'width: 90% !important; margin-left:50px;'>
-
-
 					<div class="row">
 						<table class="table bio-table">
 							<tbody>
 								<tr>
-									<% @behavior.each do |g| %>
 									<td>
-										<%=g.report%>
-										<%= link_to image_tag('delete.png', size: '25x25'), g, method: :delete %>
-									<% end %>
+										<% @behavior.each do |g| %>
 
+											<%=g.report%>
+											<%= link_to image_tag('delete.png', size: '25x25'), g, method: :delete %>
+										<% end %>
 									</td>
 								</tr>
-
-
-
 							</tbody>
 						</table>
-
-
-
 					</div><!--row close-->
 				</div>
-				</div><!--container close -->
-			</div>
+			</div><!--container close -->
+		</div>
 
-			<div class="tab-pane fade" id="participation">
-				<div class="container addGradeBar fom-main">
-					<div class="col-sm-12 addGradeBar" style="float:left;">
-						<div class="hve-pro">
-							<p>
-								Participation
-							</p>
-							<span class = 'new-participation-btn'= ><span class = 'fa fa-plus-circle fa-3x' ></span></span>
+		<div class="tab-pane fade" id="participation">
+			<div class="container addGradeBar fom-main">
+				<div class="col-sm-12 addGradeBar" style="float:left;">
+					<div class="hve-pro">
+						<p>
+							Participation
+						</p>
+						<span class = 'new-participation-btn'= ><span class = 'fa fa-plus-circle fa-3x' ></span></span>
 							<div id='new-participation' class='col-sm-12'>
 								<%= form_for ParticipationReport.new do |f| %>
 									<%= f.label :Date %>
@@ -245,56 +221,45 @@
 									<br>
 									<%= f.submit %>
 								<%end%>
-
 							</div>
-						</div><!--hve-pro close-->
-					</div><!--col-sm-12 close-->
-					<div class="row">
-					</div><!--row close-->
-					<br />
+					</div><!--hve-pro close-->
+				</div><!--col-sm-12 close-->
 				<div class = 'col-md-12',style = 'width: 90% !important; margin-left:50px;'>
-
-
 					<div class="row">
 						<table class="table bio-table n">
-							
+					
 							<div class='col-md-6 n'>
-							<br> <br> <br> 
+								<br> <br> <br> 
 								<h3> Average Participation Grade <br><br> <%=@participationAvg%> / 5</h3>
 							</div>
 							<div class='col-md-6 n'>
 							<%= pie_chart @participation.group(:report).count %>
 							</div>
+						</table>
 					</div><!--row close-->
-					
-				</div>
 				</div><!--container close -->
 			</div>
+		</div>
+		<div class="tab-pane fade" id="account">
+			<div class="container fom-main">
+				<div class="row">
+					<div class="col-sm-12">
+						<h2 class="register">Edit Student Profile</h2>
+					</div><!--col-sm-12 close-->
+				</div><!--row close-->
+				<br />
+				<div class="row">
+					<fieldset style = 'width: 50%; margin: 0 auto;'>
 
-			<div class="tab-pane fade" id="account">
-				<div class="container fom-main">
-					<div class="row">
-						<div class="col-sm-12">
-							<h2 class="register">Edit Student Profile</h2>
+					<%= render "students/edit"%>
 
-						</div><!--col-sm-12 close-->
-					</div><!--row close-->
-					<br />
+					</fieldset>
 
-					<div class="row">
-
-
-						<fieldset style = 'width: 50%; margin: 0 auto;'>
-
-						<%= render "students/edit"%>
-
-						</fieldset>
-
-					</div><!--row close-->
-				</div><!--container close -->
-			</div><!--tab-pane close-->
-		</div><!--tab-content close-->
-	</div><!--container close-->
+				</div><!--row close-->
+			</div><!--container close -->
+		</div><!--tab-pane close-->
+	</div><!--tab-content close-->
+</div><!--container close-->
 
 </section><!--section close-->
 

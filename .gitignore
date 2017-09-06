@@ -19,6 +19,7 @@
 .byebug_history
 sendgrid.env
 <<<<<<< HEAD
+<<<<<<< HEAD
 sendgrid.env
 sendgrid.env
 sendgrid.env
@@ -65,3 +66,6 @@ sendgrid.env
 =======
 
 >>>>>>> f7664b4b613328c5a72a2cb8318bac25b738f64a
+=======
+secrets.yml
+>>>>>>> 6a45425ecc39d35a1c7c9d0a834754469cb86cf7

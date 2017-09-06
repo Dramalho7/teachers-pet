@@ -34,73 +34,70 @@
     </ul><!--nav-tabs close-->
 
     <!-- Tab panes -->
+	<div class="tab-content">
+		<div class="tab-pane fade active in" id="profile">
+			<div class="container">
+				<div class="col-sm-11" style="float:left;">
+					<div class="hve-pro">
+						<p>
+							Add more Students to this class.
+						</p>
+						<span class = 'new-class-btn'= ><span class = 'fa fa-plus-circle fa-3x' ></span></span>
+						<div id='new-class' class='col-sm-12'>
+							<%= form_for Course.new do |f| %>
+							<div class 'form-size' style = 'width:25%; margin: 0 auto;'>
 
-		<div class="tab-content">
-    	<div class="tab-pane fade active in" id="profile">
-    		<div class="container">
-					<div class="col-sm-11" style="float:left;">
-						<div class="hve-pro">
-							<p>
-								Add more Students to this class.
-							</p>
-							<span class = 'new-class-btn'= ><span class = 'fa fa-plus-circle fa-3x' ></span></span>
-							<div id='new-class' class='col-sm-12'>
+							<%=f.hidden_field :name, :value => @course.name%>
 
-									<%= form_for Course.new do |f| %>
-									<div class 'form-size' style = 'width:25%; margin: 0 auto;'>
-
-									<%=f.hidden_field :name, :value => @course.name%>
-
-									<%= f.label :Student, class: 'form-control' %>
-									<%= f.select :student_id, @allstudents.collect {|x| [x.name, x.id]}, {class: ' btn btn-default dropdown-toggle'}, style: 'background-color:#DE7A22;width:50%;' %>
-
-
-									<%= f.submit class: 'btn-default' %>
-								</div>
-								<% end %>
-
-
-				<br clear="all" />
-				<div class="row">
-					<div class="col-md-12">
-						<h4 class="pro-title">Courses</h4>
-					</div><!--col-md-12 close-->
-
-
-					<div class="col-md-6" style = 'width: 90% !important; margin-left:50px;'>
-
-						<% @courses.each do |g| %>
-
-							<% if g.student_id === nil%>
-
-
-							<%else%>
-							<div class='students-in-class col-xs-6 col-sm-4 col-md-3'>
-									<!-- students name & link to indvidual page -->
-								<p>
-									<%= link_to @allstudents.find(g.student_id).name, student_path(@allstudents.find(g.student_id).id) %>
-								</p>
-									<!-- students profile pic -->
-								<td>
-									<%= image_tag(@allstudents.find(g.student_id).avatar, size: '120x120', class: 'studentPic')%>
-								</td>
-								<p>
-								<span>
-									<%= link_to 'Remove', g, method: :delete %></span>
-								</p>
-
+							<%= f.label :Student, class: 'form-control' %>
+							<%= f.select :student_id, @allstudents.collect {|x| [x.name, x.id]}, {class: ' btn btn-default dropdown-toggle'}, style: 'background-color:#DE7A22;width:50%;' %>
+							<%= f.submit class: 'btn-default' %>
 							</div>
-							<%end%>
+								<% end %>
+						</div>
+					</div>
 
-						<%end%>
-				
-						
-					</div><!--col-md-6 close-->
-				</div><!--row close-->
-			</div><!--container close-->
-		</div><!--tab-pane close-->
-	</div><!--tab-content close-->
-</div><!--container close-->
+					<br clear="all" />
+					<div class="row">
+						<div class="col-md-12">
+							<h4 class="pro-title">Courses</h4>
+						</div><!--col-md-12 close-->
 
+
+						<div class="col-md-6" style = 'width: 90% !important; margin-left:50px;'>
+
+							<% @courses.each do |g| %>
+
+								<% if g.student_id === nil%>
+
+
+								<%else%>
+							<div class='students-in-class col-xs-6 col-sm-4 col-md-3'>
+										<!-- students name & link to indvidual page -->
+									<p>
+										<%= link_to @allstudents.find(g.student_id).name, student_path(@allstudents.find(g.student_id).id) %>
+									</p>
+										<!-- students profile pic -->
+									<td>
+										<%= image_tag(@allstudents.find(g.student_id).avatar, size: '120x120', class: 'studentPic')%>
+									</td>
+									<p>
+									<span>
+										<%= link_to 'Remove', g, method: :delete %></span>
+									</p>
+
+							</div> 
+									<%end%>
+
+								<%end%>
+					
+							
+						</div><!--col-md-6 close-->
+					</div><!--row close-->
+				</div><!--container close-->
+			</div><!--tab-pane close-->
+		</div><!--tab-content close-->
+	</div><!--container close-->
+</div>
 </section><!--section close-->
 
