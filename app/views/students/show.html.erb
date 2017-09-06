@@ -13,7 +13,8 @@
 
 			<ul>
 				<li><span class="fa fa-envelope fw"></span><%= link_to "Email Parent", parent_path(@student.id) %> </li>
-				<li><%= link_to "Back to Profile", teacher_session_path, :method => :get %></li>
+				<li><span class="glyphicon glyphicon-arrow-left"></span><%= link_to "Back to Profile", teacher_session_path, :method => :get %></li>
+				<li><span class="glyphicon glyphicon-arrow-left"></span><%= link_to "Back to Teacher Profile", teacher_session_path, :method => :get %></li>
 
 			</ul>
 
