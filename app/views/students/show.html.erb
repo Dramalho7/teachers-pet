@@ -13,7 +13,6 @@
 
 			<ul>
 				<li><span class="fa fa-envelope fw"></span><%= link_to "Email Parent", parent_path(@student.id) %> </li>
-				<li><span class="glyphicon glyphicon-arrow-left"></span><%= link_to "Back to Profile", teacher_session_path, :method => :get %></li>
 				<li><span class="glyphicon glyphicon-arrow-left"></span><%= link_to "Back to Teacher Profile", teacher_session_path, :method => :get %></li>
 
 			</ul>
@@ -126,10 +125,9 @@
 									<br>
 									<%= f.label :Mark_Absent %>
 									<%= f.check_box :is_present %>
-
 									<br>
-									<%= f.label :student_id %>
-									<%= f.number_field :student_id, :value => @student.id %>
+								
+									<%= f.hidden_field :student_id, :value => @student.id %>
 									<br>
 									<%= f.submit %>
 								<%end%>
@@ -150,14 +148,12 @@
 									Absent Records: <br>
 									<% @attendance.each do |g| %>
 									<br>
-										<% if g.is_present == true %>
 											 <%=g.date%>
-										<%else%>
-											<p><%=@student.name%> You have Perfect Attendance!</p>
-										<%end%>
-										<%= link_to 'Remove Report', g, method: :delete %>
+										
+										
+										<%= link_to image_tag('delete.png', size: '25x25'), g, method: :delete %>
 									<% end %>
-									<p> --- </p>
+									
 								</td>
 								</tr>
 
@@ -189,7 +185,6 @@
 									<%= f.label :Report %>
 									<%= f.text_area :report %>
 									<br>
-									<%= f.label :student_id %>
 									<%= f.number_field :student_id, :value => @student.id %>
 									<br>
 									<%= f.submit %>
@@ -211,7 +206,7 @@
 									<% @behavior.each do |g| %>
 									<td>
 										<%=g.report%>
-										<%= link_to 'Remove Report', g, method: :delete %>
+										<%= link_to image_tag('delete.png', size: '25x25'), g, method: :delete %>
 									<% end %>
 
 									</td>
@@ -246,7 +241,7 @@
 									<%= f.number_field :report, in: 1...6%>
 									<br>
 									<%= f.label :student_id %>
-									<%= f.number_field :student_id, :value => @student.id %>
+									<%= f.hidden_field :student_id, :value => @student.id %>
 									<br>
 									<%= f.submit %>
 								<%end%>
@@ -257,34 +252,21 @@
 					<div class="row">
 					</div><!--row close-->
 					<br />
-				<div class = 'col-md-6',style = 'width: 90% !important; margin-left:50px;'>
+				<div class = 'col-md-12',style = 'width: 90% !important; margin-left:50px;'>
 
 
 					<div class="row">
-						<table class="table bio-table">
-							<tbody>
-								<tr>
-									<td>
-										<% @participation.each do |g| %>
-
-											<%=g.report%>
-											<%= link_to 'Remove Report', g, method: :delete %>
-										<% end %>
-
-									</td>
-									<td>
-										<p> Average Participation score <%=@participationAvg%> </p>
-									</td>
-								</tr>
-
-
-
-							</tbody>
-						</table>
-
-
-
+						<table class="table bio-table n">
+							
+							<div class='col-md-6 n'>
+							<br> <br> <br> 
+								<h3> Average Participation Grade <br><br> <%=@participationAvg%> / 5</h3>
+							</div>
+							<div class='col-md-6 n'>
+							<%= pie_chart @participation.group(:report).count %>
+							</div>
 					</div><!--row close-->
+					
 				</div>
 				</div><!--container close -->
 			</div>
