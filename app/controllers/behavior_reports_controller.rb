@@ -1,33 +1,29 @@
+include SendGrid
+
 class BehaviorReportsController < ApplicationController
 
 	def new 
 		@behaviorReport = BehaviorReport.new
 	end
 
-	def create
-		@behaviorReport = BehaviorReport.create(date: params[:behavior_report][:date], report: params[:behavior_report][:report], student_id: params[:behavior_report][:student_id])
-		@studentid = params[:behavior_report][:student_id]
-		puts "THIS IS THE STUDENT ID"
-		puts @studentid
-		@student = Student.find(@studentid)
-		puts "THIS IS THE STUDENT"
-		puts @student
-		@behaviorReport.save
-		# redirect_to student_path(params[:behavior_report][:student_id])
+	 def create
+        @behaviorReport = BehaviorReport.create(date: params[:behavior_report][:date], report: params[:behavior_report][:report], student_id: params[:behavior_report][:student_id])
+        @student = Student.find(params[:behavior_report][:student_id])
+        @teacher = current_teacher.name
+        from = Email.new(email: 'notifications@teacherspet.com')
+        to = Email.new(email: 'randallsong149@gmail.com')
+        subject = 'Guardian of' + ' ' + @student.name 
+        content = Content.new(type: 'text/plain', value: 'There has been an incident at school today' + ' ' + @behaviorReport.report + ' ' + 'if you have any questions, please let me know. Sincerely,' + ' ' + @teacher)
+        mail = SendGrid::Mail.new(from, subject, to, content)
 
-		respond_to do |format|
-      	if @behaviorReport.save
-        # Tell the UserMailer to send a welcome email after save
-        	ParentmailerMailer.send_status_email(@student).deliver
- 
-        	format.html {redirect_to student_path(@studentid), notice: 'Behavior Report Sent'}
-        	format.json {redirect_to student_path(@studentid), status: :created }
-      	else
-        	format.html { render action: 'new' }
-       		format.json { render json: @student.errors, status: :unprocessable_entity }
-      end
+        sg = SendGrid::API.new(api_key: 'BZyvaC-KTNWph2vOUuqKLg.z1VfqcyHNsApNd8Qiq4PIiv85Ba1mJ3rm_v3-5x5WBs')
+        response = sg.client.mail._('send').post(request_body: mail.to_json)
+        puts mail.to_json
+        puts response.status_code
+        puts response.body
+        puts response.headers
+        redirect_to student_path(@student.id)
     end
-	end
 
 	def destroy
 		@behavior = BehaviorReport.find(params[:id])

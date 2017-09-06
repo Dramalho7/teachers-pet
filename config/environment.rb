@@ -9,8 +9,8 @@ Rails.application.initialize!
 #this probably doesn't do anything but i'll put it here just in case- Randall
   ActionMailer::Base.smtp_settings = {
 
-  :user_name => 'dramalho7',
-  :password => 'Troldan7',
+  :user_name => 'jckimmey',
+  :password => 'Biology123',
   :domain => 'none.com',
   :address => 'smtp.sendgrid.net',
   :port => 587,
