@@ -53,8 +53,8 @@
     <!-- Tab panes -->
 		<div class="tab-content">
     	<div class="tab-pane fade active in" id="profile">
-    		<div class="container">
-					<div class="col-sm-11" style="float:left;">
+    		<div class="container addGradeBar">
+					<div class="col-sm-12 addGradeBar" >
 						<div class="hve-pro">
 							<p>
 								Add Grades to the book
@@ -92,41 +92,20 @@
 							<div class="table-responsive responsiv-table">
   							<table class="table bio-table">
       						<tbody>
-		     						<tr>
-											<% @grades.each do |g| %>
-											<p>
 
-												<h3 id= assignment>Assignment: <%=g.assignment%></h3>
+	     						<tr>
+									<td>
+										<h3 style = 'text-align: center;'>Average Grade <%=@gradesAvg%> </h3>
+									</td>
+								</tr>
+							</tbody>
+							<div class=col-md-12>
+								<%= column_chart @grades.group(:assignment).sum(:score) %>
+							</div>
+						</table>
+					</div><!--This area is to respond to a callback to courses show partial when teacher selects a course-->
+				</div><!--col-md-6 close-->
 
-												<li style= 'list-style:none;'>
-													grade: <%=g.score%>
-												</li>
-
-
-												<%= link_to 'Remove Report', g, method: :delete %>
-												<% end %>
-											</p>
-
-
-
-											<td>
-												<p>Average Grade <%=@gradesAvg%> </p>
-
-												<%= column_chart @grades.group(:assignment).sum(:score) %>
-											</td>
-										</tr>
-
-
-
-
-
-
-
-
-									</tbody>
-								</table>
-							</div><!--This area is to respond to a callback to courses show partial when teacher selects a course-->
-						</div><!--col-md-6 close-->
 
 
 					</div><!--row close-->
@@ -134,8 +113,8 @@
 			</div><!--tab-pane close-->
 
 			<div class="tab-pane fade" id="allstudents">
-				<div class="container fom-main">
-					<div class="col-sm-11" style="float:left;">
+				<div class="container addGradeBar fom-main">
+					<div class="col-sm-12 addGradeBar" style="float:left;">
 						<div class="hve-pro">
 							<p>
 								Mark Attendance
@@ -196,8 +175,8 @@
 			</div>
 
 			<div class="tab-pane fade" id="behavior">
-				<div class="container fom-main">
-					<div class="col-sm-11" style="float:left;">
+				<div class="container addGradeBar fom-main">
+					<div class="col-sm-12 addGradeBar" style="float:left;">
 						<div class="hve-pro">
 							<p>
 								Incident Report
@@ -252,8 +231,8 @@
 			</div>
 
 			<div class="tab-pane fade" id="participation">
-				<div class="container fom-main">
-					<div class="col-sm-11" style="float:left;">
+				<div class="container addGradeBar fom-main">
+					<div class="col-sm-12 addGradeBar" style="float:left;">
 						<div class="hve-pro">
 							<p>
 								Participation
