@@ -23,7 +23,7 @@
 </div><!--container close-->
 
 
-<div id="sticky" class="container">
+<div id="sticky" class="container paddingprof">
 
     <!-- Nav tabs -->
     <ul class="nav nav-tabs nav-menu" role="tablist">
@@ -61,21 +61,26 @@
 						</p>
 						<span class = 'new-class-btn'= ><span class = 'fa fa-plus-circle fa-3x' ></span></span>
 						<div id='new-class' class='col-sm-12'>
-							<p>Create grades</p>
+							<br />
+							<div class = 'form-size' style = 'margin: 0 auto;'>
+
+
 							<%= form_for Grade.new do |f| %>
+
 								<%= f.label :Date %>
-								<%= f.date_field :date, :value=>Date.today %>
+								<%= f.date_field :date, :value=>Date.today, class: 'form-control' %>
 								<br>
 								<%= f.label :Assignment_Name %>
-								<%= f.text_field :assignment %>
+								<%= f.text_field :assignment, class: 'form-control' %>
 								<br>
 								<%= f.label :Score %>
-								<%= f.number_field :score, in: 1...101%>
+								<%= f.number_field :score, in: 1...101, class:'form-control'%>
 								<br>
 
 								<%= f.hidden_field :student_id, :value => @student.id %>
 								<br>
-								<%= f.submit %>
+								<%= f.submit class: 'btn btn-success' %>
+							</div>
 							<%end%><br><br>
 						</div>
 					</div><!--hve-pro close-->
@@ -117,17 +122,19 @@
 						</p>
 						<span class = 'new-student-btn'= ><span class = 'fa fa-plus-circle fa-3x' ></span></span>
 						<div id='new-student' class='col-sm-12'>
+							<div class = 'form-size' style = 'margin: 0 auto;'>
 							<%= form_for Attendance.new do |f| %>
 								<%= f.label :Date %>
-								<%= f.date_field :date, :value=>Date.today %>
+								<%= f.date_field :date, :value=>Date.today, class: 'form-control' %>
 								<br>
 								<%= f.label :Mark_Absent %>
-								<%= f.check_box :is_present %>
+								<%= f.check_box :is_present, class: 'form-control' %>
 								<br>
-							
+
 								<%= f.hidden_field :student_id, :value => @student.id %>
 								<br>
-								<%= f.submit %>
+								<%= f.submit class: 'btn btn-success'%>
+							</div>
 							<%end%>
 						</div>
 					</div><!--hve-pro close-->
@@ -142,11 +149,11 @@
 									<% @attendance.each do |g| %>
 									<br>
 											 <%=g.date%>
-										
-										
+
+
 										<%= link_to image_tag('delete.png', size: '25x25'), g, method: :delete %>
 									<% end %>
-									
+
 								</td>
 								</tr>
 							</tbody>
@@ -165,16 +172,18 @@
 						</p>
 						<span class = 'new-behavior-btn'= ><span class = 'fa fa-plus-circle fa-3x' ></span></span>
 						<div id='new-behavior' class='col-sm-12'>
+							<div class = 'form-size' style = 'margin: 0 auto;'>
 							<%= form_for BehaviorReport.new do |f| %>
 								<%= f.label :Date %>
-								<%= f.date_field :date, :value=>Date.today %>
+								<%= f.date_field :date, :value=>Date.today, class: 'form-control' %>
 								<br>
 								<%= f.label :Report %>
-								<%= f.text_area :report %>
+								<%= f.text_area :report, class: 'form-control' %>
 								<br>
-								<%= f.number_field :student_id, :value => @student.id %>
+								<%= f.hidden_field :student_id, :value => @student.id%>
 								<br>
-								<%= f.submit %>
+								<%= f.submit class: 'btn btn-success' %>
+							</div>
 							<%end%>
 
 						</div>
@@ -209,17 +218,19 @@
 						</p>
 						<span class = 'new-participation-btn'= ><span class = 'fa fa-plus-circle fa-3x' ></span></span>
 							<div id='new-participation' class='col-sm-12'>
+								<div class = 'form-size' style = 'margin: 0 auto;'>
 								<%= form_for ParticipationReport.new do |f| %>
 									<%= f.label :Date %>
-									<%= f.date_field :date, :value=>Date.today %>
+									<%= f.date_field :date, :value=>Date.today, class: 'form-control' %>
 									<br>
 									<%= f.label :Report %>
-									<%= f.number_field :report, in: 1...6%>
+									<%= f.number_field :report, in: 1...6, class: 'form-control', style: 'margin:0 auto;width:25%;'%>
 									<br>
 									<%= f.label :student_id %>
 									<%= f.hidden_field :student_id, :value => @student.id %>
 									<br>
-									<%= f.submit %>
+									<%= f.submit class: 'btn btn-success' %>
+								</div>
 								<%end%>
 							</div>
 					</div><!--hve-pro close-->
@@ -227,9 +238,9 @@
 				<div class = 'col-md-12',style = 'width: 90% !important; margin-left:50px;'>
 					<div class="row">
 						<table class="table bio-table n">
-					
+
 							<div class='col-md-6 n'>
-								<br> <br> <br> 
+								<br> <br> <br>
 								<h3> Average Participation Grade <br><br> <%=@participationAvg%> / 5</h3>
 							</div>
 							<div class='col-md-6 n'>
@@ -262,4 +273,3 @@
 </div><!--container close-->
 
 </section><!--section close-->
-
