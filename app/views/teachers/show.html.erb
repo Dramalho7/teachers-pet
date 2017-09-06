@@ -112,19 +112,13 @@
 											trying to render courses view here
 										</p> -->
 
-
-
-
 									</tbody>
 								</table>
 							</div><!--table-responsive close-->
 						</div><!--col-md-6 close-->
-
-
 					</div><!--row close-->
 				</div><!--container close-->
 			</div><!--tab-pane close-->
-
 			<div class="tab-pane fade" id="allstudents">
 				<div class="container bar fom-main">
 					<div class="col-sm-12 bar" style="float:left;">
@@ -135,19 +129,13 @@
 							<span class = 'new-student-btn'= ><span class = 'fa fa-plus-circle fa-3x' ></span></span>
 							<div id='new-student' class='col-sm-12'>
 								<%= form_for Student.new do |f| %>
-
-
 								<%= f.label :name %><br>
 								<%= f.text_field :name, class:'form-control' %>
-
 								<%= f.label :parent_email %>
 								<%= f.text_field :parent_email, class:'form-control' %>
-
 								<%= f.label :Avatar %>
 								<%= f.file_field :avatar, class:'form-control' %>
-
 								<%= f.submit %>
-
 								<% end %>
 							</div>
 						</div><!--hve-pro close-->
@@ -156,57 +144,40 @@
 					</div><!--row close-->
 					<br />
 				<div class = 'col-md-6',style = 'width: 90% !important; margin-left:50px;'>
-
-
 					<div class="row">
 						<table class="table bio-table">
 							<tbody>
 								<tr>
 									<% @students.in_groups(3,false) do |group| %>
 									<%group.each do |g| %>
-
 									<td>
 										<br>
 										<%= image_tag (@students.find(@students.where(name: g.name).ids[0]).avatar), size: '140x140' %>
 										<ul>
-
 										<%= link_to g.name, student_path(@students.find(@students.where(name: g.name).ids[0]))  %>
 									</ul>
 									<% end %>
 									</td>
 								</tr>
 								<% end %>
-
-
 							</tbody>
 						</table>
-
-
-
 					</div><!--row close-->
 				</div>
 				</div><!--container close -->
 			</div>
-
 			<div class="tab-pane fade" id="account">
 				<div class="container fom-main">
 					<div class="row">
 						<div class="col-sm-12">
 							<h2 class="register">Edit Your Profile</h2>
-
 						</div><!--col-sm-12 close-->
 					</div><!--row close-->
 					<br />
-
 					<div class="row">
-
-
 						<fieldset style = 'width: 50%; margin: 0 auto;'>
 							<%= render "teachers/registrations/edit", locals: { resource: @resource, :resource_name => :teacher } %>
-
-
 						</fieldset>
-
 					</div><!--row close-->
 				</div><!--container close -->
 			</div><!--tab-pane close-->
