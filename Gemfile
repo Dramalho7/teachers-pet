@@ -10,7 +10,6 @@ gem 'sendgrid-ruby'
 gem 'rails_12factor', group: :production
 gem 'countries'
 gem 'faker'
-gem 'sendgrid-ruby'
 gem 'devise'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'bootstrap-sass', '~> 3.3.6'

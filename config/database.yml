@@ -78,6 +78,11 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+development:
+  adapter: postgresql
+  host: localhost
+  username: user
+  database: teachers-pet_development
 production:
   <<: *default
   database: teachers-pet_production
