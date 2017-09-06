@@ -24,16 +24,16 @@ class StudentsController < ApplicationController
 		@teacher = Teacher.find(current_teacher.id)
 		@student = Student.find(params[:id])
 		@courses = Course.where(student_id: params[:id])
-		@grades = Grade.where(student_id: params[:id])
-		Groupdate.dates = false
+		@grades = Grade.where(student_id: params[:id])                    
 		# grades logic
-		@gradesTotal = 0.0
-		# @grades.each do |g|
-		# 	@gradesTotal = @gradesTotal + Integer(g.score)
-		# 	puts @gradeTotal
- 	# 	end
+		@gradesTotal = 0.00
+		@grades.each do |g|
+			@gradesTotal = @gradesTotal + Integer(g.score)
+			puts @gradeTotal
+ 		end
  		if @grades.length > 0
- 			(@gradesAvg = (@gradesTotal / (@grades.length))).round(2)
+ 			@gradesAvg = (@gradesTotal / (@grades.length))
+ 			@gradesAvg.round(2)
  		else
  		end
 		# participation grade logic

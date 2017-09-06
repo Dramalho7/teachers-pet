@@ -9,8 +9,8 @@ class GradesController < ApplicationController
 		# @student = Student.find(params[:id])
 		@grade = Grade.create(date: params[:grade][:date], assignment: params[:grade][:assignment], score: params[:grade][:score], student_id: params[:grade][:student_id])
 		@grade.save
-		# redirect_to student_path(params[:grade][:student_id])
-
+		redirect_to student_path(params[:grade][:student_id])
+		
 	 
 	end
 
