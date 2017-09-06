@@ -24,6 +24,14 @@ class BehaviorReportsController < ApplicationController
         puts response.headers
         redirect_to student_path(@student.id)
     end
+    # Old version
+	# def create
+	# 	@behaviorReport = BehaviorReport.create(date: params[:behavior_report][:date], report: params[:behavior_report][:report], student_id: params[:behavior_report][:student_id])
+	# 	@student = Student.find(params[:behavior_report][:student_id])
+	# 	@teacher = current_teacher.name
+	# 	redirect_to student_path(@student.id)
+	# end
+
 
 	def destroy
 		@behavior = BehaviorReport.find(params[:id])

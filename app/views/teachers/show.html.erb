@@ -50,8 +50,8 @@
     <!-- Tab panes -->
 		<div class="tab-content">
     	<div class="tab-pane fade active in" id="profile">
-    		<div class="container">
-					<div class="col-sm-11" style="float:left;">
+    		<div class="container bar">
+					<div class="col-xs-12 col-sm-12 col-md-12 bar" style="float:left;">
 						<div class="hve-pro">
 							<p>
 								These are all your Courses that you teach.
@@ -126,8 +126,8 @@
 			</div><!--tab-pane close-->
 
 			<div class="tab-pane fade" id="allstudents">
-				<div class="container fom-main">
-					<div class="col-sm-11" style="float:left;">
+				<div class="container bar fom-main">
+					<div class="col-sm-12 bar" style="float:left;">
 						<div class="hve-pro">
 							<p>
 								These are all your Students.
@@ -166,8 +166,8 @@
 									<%group.each do |g| %>
 
 									<td>
-										<br />
-										<%= image_tag (@students.find(@students.where(name: g.name).ids[0]).avatar), size: '150x150' %>
+										<br>
+										<%= image_tag (@students.find(@students.where(name: g.name).ids[0]).avatar), size: '140x140' %>
 										<ul>
 
 										<%= link_to g.name, student_path(@students.find(@students.where(name: g.name).ids[0]))  %>

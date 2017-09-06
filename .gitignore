@@ -18,6 +18,7 @@
 
 .byebug_history
 sendgrid.env
+<<<<<<< HEAD
 sendgrid.env
 sendgrid.env
 sendgrid.env
@@ -61,3 +62,6 @@ sendgrid.env
 =======
 sendgrid.env
 >>>>>>> 46dfbaf15be182080bf308abf47e06178645a94b
+=======
+
+>>>>>>> f7664b4b613328c5a72a2cb8318bac25b738f64a

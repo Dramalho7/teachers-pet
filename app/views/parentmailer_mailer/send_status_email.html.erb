@@ -6,10 +6,10 @@
   <body>
     <h1>Hello parent of <%= @student.name %></h1>
 
-    <h2>Here are you child's current statistics</h2>
+    <h2>There was an incident today at school, here is the report:</h2>
 
-    <h3>Grades</h3>
-    
+    <h3><%= @student.behavior_report.report %></h3>
+
 
   </body>
 </html>
