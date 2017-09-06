@@ -5,6 +5,7 @@ class TeachersController < ApplicationController
 		@teacher = Teacher.all
 		@courses = Course.all
 
+
 	end
 
 	def new

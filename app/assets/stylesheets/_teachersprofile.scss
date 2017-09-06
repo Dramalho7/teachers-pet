@@ -39,8 +39,11 @@ width: 100%;border-radius: 0px 20px 20px 0px;color: #fff !important;height: 40px
 .tabpadding{
   padding-top: 50px;
   opacity: .9;
-  
+
 }
+
+
+
 /*nav css close*/
 
 
@@ -57,15 +60,15 @@ margin-bottom: 0;}
 }
 
 .profile-head ul { list-style:none;padding: 0;}
-.profile-head ul li { display:block; color:#ffffff;padding:5px;font-weight: 400;font-size: 15px;font-family: 'Lora', serif;}
+.profile-head ul li { display:block; color:#ffffff;padding:5px;font-weight: 400;font-size: 15px;font-family: 'Josefin Sans', sans-serif;}
 .profile-head ul li:hover span { color:rgb(0, 4, 51);}
 .profile-head ul li span { color:#ffffff;padding-right: 10px;}
-.profile-head ul li a { color:#ffffff;font-family: 'Lora', serif;}
+.profile-head ul li a { color:#ffffff;font-family: 'Josefin Sans', sans-serif;}
 .profile-head h6 {width: 100%;text-align: center;font-weight: 100;color: #fff;font-size: 15px;text-transform: uppercase;margin-bottom: 0;}
 
 
 .nav-tabs {margin: 0;padding: 0;border: 0;}
-.nav-tabs > li > a {background: #DADADA;border-radius: 0;font-family: 'Shadows Into Light', cursive; font-size: 18px;
+.nav-tabs > li > a {background: #DADADA;border-radius: 0;font-family: 'Josefin Sans', sans-serif, cursive; font-size: 18px;
     box-shadow: inset 0 -8px 7px -9px rgba(0,0,0,.4),-2px -2px 5px -2px rgba(0,0,0,.4);}
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover {background: #F5F5F5;
@@ -74,6 +77,13 @@ margin-bottom: 0;}
 .tab-content>.active {
   margin-top:0px;/*width:100% !important;*/
 }
+
+.btn-success {
+    color: #fff;
+    background-color: #DE7A22 !important;
+    border-color: #F4CC70 !important;
+
+  }
 
 /* edit profile css*/
 
@@ -95,19 +105,19 @@ select.selectpicker { color:#99999c;}
 select.selectpicker option { color:#000 !important;}
 select.selectpicker option:first-child { color:#99999c;}
 .input-group { width:100%;}
-.uplod-picture {width: 100%; background-color:white;color: #fff; padding:20px 10px;margin-bottom:10px;}
+.uplod-picture {width: 100%; background-color:inherit;color: #fff; padding:20px 10px;margin-bottom:10px;}
 .uplod-file {position: relative;overflow: hidden;color: #fff;background-color: rgb(0, 4, 51);border: 0px solid #a02e09;border-radius: 0px;
  transition:all ease 0.3s;margin: 5px;}
 .uplod-file input[type=file] {position: absolute;top: 0;right: 0;min-width: 100%;min-height: 100%;font-size: 100px;text-align: right;
 filter: alpha(opacity=0);opacity: 0;outline: none;background: white;cursor: inherit;display: block;}
 .uplod-file:hover, .uplod-file:focus {color: #fff;background-color:rgb(255, 102, 0);}
-h4.pro-title { font-size:24px; color:rgba(0, 4, 51, 0.96); text-transform:capitalize; text-align:justify;padding: 10px 15px;font-family: 'Bitter', serif;}
+h4.pro-title { font-size:24px; color:rgba(0, 4, 51, 0.96); text-transform:capitalize; text-align:justify;padding: 10px 15px;font-family: 'Josefin Sans', sans-serif;}
 .bio-table { width:75%;border:0px solid;}
 .bio-table td {text-transform: capitalize;text-align: left;font-size: 15px;}
 .bio-table>tbody>tr>td { border:0px solid;text-transform: capitalize;color: rgb(0, 4, 51); font-size:15px;}
 .responsiv-table { border:0px solid;}
 .nav-menu li a {margin: 5px 5px 5px 5px;position: relative;display: block;padding: 10px 50px;border: 0px solid !important;box-shadow: none !important;
-background-color: #F4CC70 !important;color: #fff !important;    white-space: nowrap;}
+background-color: #20948B !important;color: #fff !important;    white-space: nowrap;}
 .nav-menu li.active a {background-color: #DE7A22 !important;}
 .stick{position:fixed !important;top:0;z-index:999 !important;width:100%;background:#ffffff !important;height:auto; transition:all ease 0.8s;
 -webkit-box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
