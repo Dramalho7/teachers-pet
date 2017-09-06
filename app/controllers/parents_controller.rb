@@ -35,11 +35,12 @@ class ParentsController < ApplicationController
 
 		@behavior = BehaviorReport.where(student_id: params[:id])
 		@attendance = Attendance.where(student_id: params[:id])
-		from = Email.new(email: @teacher.email)
+		from = Email.new(email: 'test@example.com')
 		subject = 'Student Report'
 		to = Email.new(email: @student.parent_email)
-		content = Content.new(type: 'text/html', value: '<html><body><p>Dear Guardian of <%=@student.name%>,<p>
-			<p>I am sending you an update of how <%=@student.name%> is doing in my class. Currently, <%=@student.name%> has an average of <%=@gradesAvg%>. <%=@student.name%> also has a participation average of <%=@participationAvg%> out of 5.</p> <p> <%=@student.name%>s last 5 behavioral notes: <%=@BehaviorReport.each%> | </p> <p><%=@student.name%> has been absent <%=@attendancearray.length%> </p> <body></html>')
+		content = Content.new(type: 'text/html', value: '<html><body><p>Dear Guardian of <%=@student.name%>,<p> I am sending you this email to update you on how <%=@student.name%> is doing in my class. Currently, <%=@student.name%> has an average of <%=@gradesAvg%>. <%=@student.name%> also has a participation average of <%=@participationAvg%> out of 5.
+		</p> <p> <%=@student.name%>s behavioral notes: <%=@BehaviorReport.each%> | </p> <p><%=@student.name%> has been absent <%=@attendancearray.length%> times.
+		</p> <p> sincerely, </p><p> <%=@teacher.name%> </p><body></html>')
 		mail = Mail.new(from, subject, to, content)
 		puts content
 		 sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'], host: 'https://api.sendgrid.com')

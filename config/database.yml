@@ -18,8 +18,15 @@ default: &default
   adapter: postgresql
   encoding: unicode
   host: localhost
+<<<<<<< HEAD
   username: Randall
   password: lineage2
+=======
+  username: malik
+  password: Mippim_93127
+
+
+>>>>>>> 9cc85e1c9f53680973dcb7a92f23c7fc3cf98b46
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -27,6 +34,7 @@ default: &default
 development:
   <<: *default
   database: teachers-pet_development
+
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -83,11 +91,7 @@ test:
 #
 development:
   adapter: postgresql
-  host: localhost
-  username: user
   database: teachers-pet_development
 production:
   <<: *default
   database: teachers-pet_production
-  username: teachers-pet
-  password: <%= ENV['TEACHERS-PET_DATABASE_PASSWORD'] %>
