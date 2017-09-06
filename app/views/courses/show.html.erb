@@ -102,15 +102,16 @@
 							<div id='new-class' class='col-sm-12'>
 
 									<%= form_for Course.new do |f| %>
+									<div class 'form-size' style = 'width:25%; margin: 0 auto;'>
 
 									<%=f.hidden_field :name, :value => @course.name%>
 
-									<%= f.label :Student %><br>
-									<%= f.select :student_id, @allstudents.collect {|x| [x.name, x.id]} %>
-								</p>
-								<p>
-									<%= f.submit %>
-								</p>
+									<%= f.label :Student, class: 'form-control' %>
+									<%= f.select :student_id, @allstudents.collect {|x| [x.name, x.id]}, {class: ' btn btn-default dropdown-toggle'}, style: 'background-color:#DE7A22;width:50%;' %>
+
+
+									<%= f.submit class: 'btn-default' %>
+								</div>
 								<% end %>
 
 							</div>

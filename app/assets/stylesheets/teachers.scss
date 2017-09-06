@@ -9,7 +9,9 @@
 
 	}
 }
-
+.form-size{
+	width:50%;
+}
 .new-class-btn{
 	float: right;
 	color: #F4CC70;
@@ -41,7 +43,7 @@
 //student tabs styling ends
 
 .submit{
-	font-family: 'Lora', serif;
+	font-family: 'Josefin Sans', sans-serif;
 }
 
 .teachsubmit{
@@ -53,11 +55,13 @@
 }
 
 #teacher_email.form-control{
-	font-family: 'Lora', serif;
+	font-family: 'Josefin Sans', sans-serif;
+	opacity:1;
 }
 
 #teacher_password.form-group{
-	font-family: 'Lora', serif;
+	font-family: 'Josefin Sans', sans-serif;
+	opacity:1;
 }
 
 .sign_up{
@@ -93,6 +97,7 @@ font-family: 'Shadows Into Light', cursive;
 .mar20
 {
 margin:20px;
+opacity: .9;
 }
 .inner-section {
 background-color:#DE7A22;

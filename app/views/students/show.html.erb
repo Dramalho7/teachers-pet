@@ -235,7 +235,7 @@
 							<tbody>
 								<tr>
 									<% @behavior.each do |g| %>
-
+									<td>
 										<%=g.report%>
 										<%= link_to 'Remove Report', g, method: :delete %>
 									<% end %>

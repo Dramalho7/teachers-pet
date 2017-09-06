@@ -58,17 +58,23 @@
 							</p>
 							<span class = 'new-class-btn'= ><span class = 'fa fa-plus-circle fa-3x' ></span></span>
 							<div id='new-class' class='col-sm-12'>
+								<div class 'form-size' style = 'width:25%; margin: 0 auto;'>
 								<%= form_for Course.new do |f| %>
 
 
 								<%= f.label :name %><br>
 								<%= f.text_field :name, class:'form-control' %>
 
-								<%= f.label :Avatar %>
-								<%= f.file_field :avatar, class:'form-control' %>
 
-								<%= f.submit %>
+								<div class="uplod-picture">
+							    <span class="btn btn-default uplod-file">
+							      <span class = 'network-name' alt = 'upload picture'>Profile Picture<br /><i class = 'fa fa-upload'><%= f.file_field :avatar %></i></span>
 
+							    </span>
+							  </div><!--uplod-picture close-->
+
+								<%= f.submit class:'btn btn-success' %>
+							</div>
 								<% end %>
 							</div>
 						</div><!--hve-pro close-->
@@ -129,6 +135,7 @@
 							</p>
 							<span class = 'new-student-btn'= ><span class = 'fa fa-plus-circle fa-3x' ></span></span>
 							<div id='new-student' class='col-sm-12'>
+								<div class 'form-size' style = 'width:25%; margin: 0 auto;'>
 								<%= form_for Student.new do |f| %>
 
 
@@ -138,10 +145,15 @@
 								<%= f.label :parent_email %>
 								<%= f.text_field :parent_email, class:'form-control' %>
 
-								<%= f.label :Avatar %>
-								<%= f.file_field :avatar, class:'form-control' %>
+								<div class="uplod-picture">
+							    <span class="btn btn-default uplod-file">
+							      <span class = 'network-name' alt = 'upload picture'>Student Picture<br /><i class = 'fa fa-upload'><%= f.file_field :avatar %></i></span>
 
-								<%= f.submit %>
+							    </span>
+							  </div><!--uplod-picture close-->
+							</div>
+
+								<%= f.submit class:'btn btn-success'%>
 
 								<% end %>
 							</div>
