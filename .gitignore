@@ -22,5 +22,9 @@ secrets.yml
 sendgrid.env
 sendgrid.env
 sendgrid.env
-development.rbsendgrid.env
+development.rb
+sendgrid.env
+sendgrid.env
+sendgrid.env
+sendgrid.env
 sendgrid.env
