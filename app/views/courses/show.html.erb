@@ -1,165 +1,103 @@
 
-
-	<!-- <br><br><br><h1><%= @teacher.name %></h1> -->
-
-	<!-- <h3>Add a Student</h3> -->
-	<!-- the plus button -->
-	<!-- <%= image_tag('plus.png', size: '40x40', class: 'new-student-btn') %> -->
-
-	<!-- this is the hidden add student to class field pops up on the click of the plus button above -->
-	<!-- <div id='new-student'>
-		<%= form_for Course.new do |f| %>
-
-		<%=f.hidden_field :name, :value => @course.name%>
-
-		<%= f.label :Student %><br>
-		<%= f.select :student_id, @allstudents.collect {|x| [x.name, x.id]} %>
-	</p>
-	<p>
-		<%= f.submit %>
-	</p>
-	<% end %>
-</div>
-
-
-<h3> <%=@course.name%> </h3> -->
-
-
-<!-- this is the area all the students are shown feel free to change style it's gross-->
-<!-- <div class='col-xs-2 col-sm-2 col-md-2'>
-</div>
-<div class='students-class-container col-xs-10 col-sm-10 col-md-10'>
-
-	<% @courses.each do |g| %>
-
-	<% if g.student_id === nil%>
-
-
-	<%else%>
-	<div class='students-in-class col-xs-6 col-sm-4 col-md-2'>
-		<! students name & link to indvidual page -->
-		<!-- <p>
-			<%= link_to @allstudents.find(g.student_id).name, student_path(@allstudents.find(g.student_id).id) %>
-		</p>
-		<!-- students profile pic -->
-		<!-- <p>
-			<%= image_tag(@allstudents.find(g.student_id).avatar, size: '120x120', class: 'studentPic')%>
-		</p>
-		<p>
-			<%= link_to 'Remove Student', g, method: :delete %>
-		</p>
-	</div>
-	<%end%>
-
-	<%end%> -->
-<!-- </div>  -->
-
-
-
 <section>
 
 <div class="container" style="margin-top: 30px;">
 	<div class="profile-head">
 		<div class="col-md- col-sm-4 col-xs-12">
-			<%= image_tag( @teacher.avatar, size: '250x250', class: 'profilePic img-responsive')%>
+			<%= image_tag(@course.avatar, size: '250x250', class: 'profilePic img-responsive')%>
 		</div><!--col-md-4 col-sm-4 col-xs-12 close-->
 
 
 		<div class="col-md-5 col-sm-5 col-xs-12">
-			<h5><%= @teacher.name %></h5>
+			<h5><%= @teacher.name%>'s <%=@course.name%></h5>
 
 			<ul>
 				<li><span class="fa fa-envelope fw"></span><%= @teacher.email %></li>
+				<li><span class="glyphicon glyphicon-arrow-left"></span><%= link_to "Back to Profile", teacher_session_path, :method => :get %></li>
 				<li><%= link_to "Sign out", destroy_teacher_session_path, :method => :delete %></li>
 
 			</ul>
 
 
 		</div><!--col-md-8 col-sm-8 col-xs-12 close-->
-
-
-
-
 	</div><!--profile-head close-->
 </div><!--container close-->
-
-
-<div id="sticky" class="container tabpadding">
+<div id="sticky" class="container">
 
     <!-- Nav tabs -->
-
+    <ul class="nav nav-tabs nav-menu" role="tablist">
+      <li class="active">
+          <a href="#class" role="tab" data-toggle="tab">
+              <i class="fa fa-graduation-cap"></i> Class
+          </a>
+      </li>
+    </ul><!--nav-tabs close-->
 
     <!-- Tab panes -->
-		<div class="tab-content">
-    	<div class="tab-pane fade active in" id="profile">
-    		<div class="container">
-					<div class="col-sm-11" style="float:left;">
-						<div class="hve-pro">
-							<p>
-								Add more Students to this class.
-							</p>
-							<span class = 'new-class-btn'= ><span class = 'fa fa-plus-circle fa-3x' ></span></span>
-							<div id='new-class' class='col-sm-12'>
+	<div class="tab-content">
+    	<div class="tab-pane fade active in" id="class">
+    		<div class="container bar">
+				<div class="col-sm-12 bar" style="float:left;">
+					<div class="hve-pro">
+						<p>
+							Students in this class
+						</p>
+						<span class = 'new-class-btn'= ><span class = 'fa fa-plus-circle fa-3x' ></span></span>
+						<div id='new-class' class='col-sm-12'>
+								<%= form_for Course.new do |f| %>
 
-									<%= form_for Course.new do |f| %>
+							  	<%=f.hidden_field :name, :value => @course.name%> 
 
-									<%=f.hidden_field :name, :value => @course.name%>
+							  	<%= f.label :Student %><br>
+								<%= f.select :student_id, @allstudents.collect {|x| [x.name, x.id]} %>
+							  </p>
+							  <p>
+							    <%= f.submit %>
+							  </p>
+							<% end %>
+						</div>
+					</div><!--hve-pro close-->
+				</div><!--col-sm-12 close-->
+				<br clear="all" />
+				<div class="row">
+					<div class="col-md-12">
+						<h4 class="pro-title">Courses</h4>
+					</div><!--col-md-12 close-->
 
-									<%= f.label :Student %><br>
-									<%= f.select :student_id, @allstudents.collect {|x| [x.name, x.id]} %>
-								</p>
+
+					<div class="col-md-6" style = 'width: 90% !important; margin-left:50px;'>
+
+						<% @courses.each do |g| %>
+
+							<% if g.student_id === nil%>
+
+
+							<%else%>
+							<div class='students-in-class col-xs-6 col-sm-4 col-md-3'>
+									<!-- students name & link to indvidual page -->
 								<p>
-									<%= f.submit %>
+									<%= link_to @allstudents.find(g.student_id).name, student_path(@allstudents.find(g.student_id).id) %>
 								</p>
-								<% end %>
-
+									<!-- students profile pic -->
+								<td>
+									<%= image_tag(@allstudents.find(g.student_id).avatar, size: '120x120', class: 'studentPic')%>
+								</td>
+								<p>
+								<span>
+									<%= link_to 'Remove', g, method: :delete %></span>
+								</p>
 							</div>
-						</div><!--hve-pro close-->
-					</div><!--col-sm-12 close-->
-					<br clear="all" />
-					<div class="row">
-						<div class="col-md-12">
-							<h4 class="pro-title"><%=@course.name%> class</h4>
-						</div><!--col-md-12 close-->
+							<%end%>
 
-
-						<div class="col-md-6" style = 'width: 90% !important; margin-left:50px;'>
-
-							<div class="table-responsive responsiv-table">
-  							<table class="table bio-table">
-
-									<tr>
-										<% @students.in_groups(3,false) do |group| %>
-										<%group.each do |g| %>
-
-										<td>
-											<br />
-											<%= image_tag (@students.find(@students.where(name: g.name).ids[0]).avatar), size: '150x150' %>
-											<ul>
-
-											<%= link_to g.name, student_path(@students.find(@students.where(name: g.name).ids[0]))  %>
-										</ul>
-										<% end %>
-										</td>
-									</tr>
-									<% end %>
-
-
-								</table>
-							</div><!--This area is to respond to a callback to courses show partial when teacher selects a course-->
-							<div class="table-responsive responsiv-table-hidden">
-  							<table class="table bio-table">
-      						<tbody>
-
-									</tbody>
-								</table>
-							</div><!--table-responsive close-->
-						</div><!--col-md-6 close-->
-
-
-					</div><!--row close-->
-				</div><!--container close-->
-			</div><!--tab-pane close-->
-
+						<%end%>
+				
+						
+					</div><!--col-md-6 close-->
+				</div><!--row close-->
+			</div><!--container close-->
+		</div><!--tab-pane close-->
+	</div><!--tab-content close-->
+</div><!--container close-->
 
 </section><!--section close-->
+

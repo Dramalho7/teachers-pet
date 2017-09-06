@@ -13,7 +13,8 @@
 
 			<ul>
 				<li><span class="fa fa-envelope fw"></span><%= link_to "Email Parent", parent_path(@student.id) %> </li>
-				<li><%= link_to "Back to Profile", teacher_session_path, :method => :get %></li>
+				<li><span class="glyphicon glyphicon-arrow-left"></span><%= link_to "Back to Profile", teacher_session_path, :method => :get %></li>
+				<li><span class="glyphicon glyphicon-arrow-left"></span><%= link_to "Back to Teacher Profile", teacher_session_path, :method => :get %></li>
 
 			</ul>
 
@@ -23,7 +24,7 @@
 </div><!--container close-->
 
 
-<div id="sticky" class="container tabpadding">
+<div id="sticky" class="container">
 
     <!-- Nav tabs -->
     <ul class="nav nav-tabs nav-menu" role="tablist">
@@ -83,7 +84,7 @@
 					<br clear="all" />
 					<div class="row">
 						<div class="col-md-12">
-							<h4 class="pro-title"><%=@student.name%>'s Grades</h4>
+							<h4 class="pro-title">Grades</h4>
 						</div><!--col-md-12 close-->
 
 
@@ -92,7 +93,6 @@
 							<div class="table-responsive responsiv-table">
   							<table class="table bio-table">
       						<tbody>
-
 	     						<tr>
 									<td>
 										<h3 style = 'text-align: center;'>Average Grade <%=@gradesAvg%> </h3>
@@ -105,7 +105,6 @@
 						</table>
 					</div><!--This area is to respond to a callback to courses show partial when teacher selects a course-->
 				</div><!--col-md-6 close-->
-
 
 
 					</div><!--row close-->
@@ -130,7 +129,7 @@
 
 									<br>
 									<%= f.label :student_id %>
-									<%= f.hidden_field :student_id, :value => @student.id %>
+									<%= f.number_field :student_id, :value => @student.id %>
 									<br>
 									<%= f.submit %>
 								<%end%>
@@ -152,7 +151,7 @@
 									<% @attendance.each do |g| %>
 									<br>
 										<% if g.is_present == true %>
-											 Absent the date of: <%=g.date%>
+											 <%=g.date%>
 										<%else%>
 											<p><%=@student.name%> You have Perfect Attendance!</p>
 										<%end%>
@@ -191,7 +190,7 @@
 									<%= f.text_area :report %>
 									<br>
 									<%= f.label :student_id %>
-									<%= f.hidden_field :student_id, :value => @student.id %>
+									<%= f.number_field :student_id, :value => @student.id %>
 									<br>
 									<%= f.submit %>
 								<%end%>
@@ -247,7 +246,7 @@
 									<%= f.number_field :report, in: 1...6%>
 									<br>
 									<%= f.label :student_id %>
-									<%= f.hidden_field :student_id, :value => @student.id %>
+									<%= f.number_field :student_id, :value => @student.id %>
 									<br>
 									<%= f.submit %>
 								<%end%>
