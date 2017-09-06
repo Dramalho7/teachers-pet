@@ -70,7 +70,7 @@
 <div class="col-md-12 text-left">
   <div class="uplod-picture">
     <span class="btn btn-default uplod-file">
-      <span class = 'network-name' alt = 'upload picture'><i class = 'fa fa-upload'><%= f.file_field :avatar %></i></span>
+      <span class = 'network-name' alt = 'upload picture'>Profile Picture<br /><i class = 'fa fa-upload'><%= f.file_field :avatar %></i></span>
 
     </span>
   </div><!--uplod-picture close-->
@@ -88,7 +88,7 @@
   <div class="col-md-6 ">
 
 
-    <p id = 'cancel'>Unhappy? <%= button_to "Cancel my account", registration_path(:teacher), data: { confirm: "Are you sure?" }, method: :delete, style: 'margin-left: 145px;' %></p>
+    <p id = 'cancel'>Unhappy? <%= button_to "Cancel my account", registration_path(:teacher), data: { confirm: "Are you sure?" }, method: :delete, style: 'margin-left: 145px;', class: 'btn btn-fail' %></p>
 
 <%= link_to "Back", :back %>
   </div>

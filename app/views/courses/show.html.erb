@@ -34,30 +34,32 @@
     </ul><!--nav-tabs close-->
 
     <!-- Tab panes -->
-	<div class="tab-content">
-    	<div class="tab-pane fade active in" id="class">
-    		<div class="container bar">
-				<div class="col-sm-12 bar" style="float:left;">
-					<div class="hve-pro">
-						<p>
-							Students in this class
-						</p>
-						<span class = 'new-class-btn'= ><span class = 'fa fa-plus-circle fa-3x' ></span></span>
-						<div id='new-class' class='col-sm-12'>
-								<%= form_for Course.new do |f| %>
 
-							  	<%=f.hidden_field :name, :value => @course.name%> 
+		<div class="tab-content">
+    	<div class="tab-pane fade active in" id="profile">
+    		<div class="container">
+					<div class="col-sm-11" style="float:left;">
+						<div class="hve-pro">
+							<p>
+								Add more Students to this class.
+							</p>
+							<span class = 'new-class-btn'= ><span class = 'fa fa-plus-circle fa-3x' ></span></span>
+							<div id='new-class' class='col-sm-12'>
 
-							  	<%= f.label :Student %><br>
-								<%= f.select :student_id, @allstudents.collect {|x| [x.name, x.id]} %>
-							  </p>
-							  <p>
-							    <%= f.submit %>
-							  </p>
-							<% end %>
-						</div>
-					</div><!--hve-pro close-->
-				</div><!--col-sm-12 close-->
+									<%= form_for Course.new do |f| %>
+									<div class 'form-size' style = 'width:25%; margin: 0 auto;'>
+
+									<%=f.hidden_field :name, :value => @course.name%>
+
+									<%= f.label :Student, class: 'form-control' %>
+									<%= f.select :student_id, @allstudents.collect {|x| [x.name, x.id]}, {class: ' btn btn-default dropdown-toggle'}, style: 'background-color:#DE7A22;width:50%;' %>
+
+
+									<%= f.submit class: 'btn-default' %>
+								</div>
+								<% end %>
+
+
 				<br clear="all" />
 				<div class="row">
 					<div class="col-md-12">
@@ -86,6 +88,7 @@
 								<span>
 									<%= link_to 'Remove', g, method: :delete %></span>
 								</p>
+
 							</div>
 							<%end%>
 
