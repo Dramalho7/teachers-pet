@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .studentPic{
-	border-radius: 5em;
+	border-radius: 9em;
 }
 
 #new-student {
@@ -13,4 +13,7 @@
 .students-class-container {
 	text-align: center;
 	margin-top: 100px;
+}
+.bar {
+	padding-left: 0 !important;
 }

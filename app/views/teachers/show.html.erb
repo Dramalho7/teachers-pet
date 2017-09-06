@@ -156,45 +156,38 @@
 					<div class="row">
 					</div><!--row close-->
 					<br />
-				<div class = 'col-md-6',style = 'width: 90% !important; margin-left:50px;'>
-					<div class="row">
-						<table class="table bio-table">
-							<tbody>
-								<tr>
-									<% @students.in_groups(3,false) do |group| %>
+				<div class = 'col-md-12',style = 'width: 90% !important; margin-left:50px;'>
+					<% @students.in_groups(3,false) do |group| %>
 									<%group.each do |g| %>
-									<td>
-										<br>
-										<%= image_tag (@students.find(@students.where(name: g.name).ids[0]).avatar), size: '140x140' %>
-										<ul>
-										<%= link_to g.name, student_path(@students.find(@students.where(name: g.name).ids[0]))  %>
-									</ul>
-									<% end %>
-									</td>
-								</tr>
-								<% end %>
-							</tbody>
-						</table>
-					</div><!--row close-->
+					<div class='students-in-class col-xs-6 col-sm-4 col-md-3'>
+							<%= image_tag (@students.find(@students.where(name: g.name).ids[0]).avatar), size: '140x140', class: 'studentPic' %>
+						</td>
+						<p>			
+							<%= link_to g.name, student_path(@students.find(@students.where(name: g.name).ids[0]))  %>
+						</p>		
+					</div>
+					<% end %>
+							
+					<% end %>
 				</div>
-				</div><!--container close -->
-			</div>
-			<div class="tab-pane fade" id="account">
-				<div class="container fom-main">
-					<div class="row">
-						<div class="col-sm-12">
-							<h2 class="register">Edit Your Profile</h2>
-						</div><!--col-sm-12 close-->
-					</div><!--row close-->
-					<br />
-					<div class="row">
-						<fieldset style = 'width: 50%; margin: 0 auto;'>
-							<%= render "teachers/registrations/edit", locals: { resource: @resource, :resource_name => :teacher } %>
-						</fieldset>
-					</div><!--row close-->
-				</div><!--container close -->
-			</div><!--tab-pane close-->
-		</div><!--tab-content close-->
-	</div><!--container close-->
+			</div><!--container close -->
+		</div>
+		<div class="tab-pane fade" id="account">
+			<div class="container fom-main">
+				<div class="row">
+					<div class="col-sm-12">
+						<h2 class="register">Edit Your Profile</h2>
+					</div><!--col-sm-12 close-->
+				</div><!--row close-->
+				<br />
+				<div class="row">
+					<fieldset style = 'width: 50%; margin: 0 auto;'>
+						<%= render "teachers/registrations/edit", locals: { resource: @resource, :resource_name => :teacher } %>
+					</fieldset>
+				</div><!--row close-->
+			</div><!--container close -->
+		</div><!--tab-pane close-->
+	</div><!--tab-content close-->
+</div><!--container close-->
 
 </section><!--section close-->
