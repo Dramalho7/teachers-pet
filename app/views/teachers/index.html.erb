@@ -15,7 +15,7 @@
                     <ul class="list-inline intro-social-buttons intmessage">
                       <%- if teacher_signed_in? %>
                       <li>
-                        <a href="<%= current_teacher.id %>" class="btn btn-default btn-lg"><i class="fa fa-user fa-fw"></i> <span class="network-name">Welcome Back <%= current_teacher.name %>!</span></a>
+                        <a href="<%= teacher_session_path%>" class="btn btn-default btn-lg"><i class="fa fa-user fa-fw"></i> <span class="network-name">Welcome Back <%= current_teacher.name %>!</span></a>
                       </li>
                       <% else %>
                       <li>
