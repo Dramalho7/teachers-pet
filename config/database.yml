@@ -19,7 +19,7 @@ default: &default
   encoding: unicode
   host: localhost
   username: malik
-  password: Mippim_93127
+  password: ""
 
 
   # For details on connection pooling, see Rails configuration guide
