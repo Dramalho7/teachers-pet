@@ -51,14 +51,14 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
 
-  # ActionMailer::Base.smtp_settings = {
-  #   :address => "smtp.sendgrid.net",
-  #   :port => 25,
-  #   :domain => "mysite.com",
-  #   :authentication => :plain,
-  #   :user_name => "apikey",
-  #   :password => "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"
-  # }
+  ActionMailer::Base.smtp_settings = {
+    :address => "smtp.sendgrid.net",
+    :port => 25,
+    :domain => "mysite.com",
+    :authentication => :plain,
+    :user_name => "apikey",
+    :password => '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'
+  }
 
 
 
