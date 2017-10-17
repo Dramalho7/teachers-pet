@@ -18,15 +18,11 @@ default: &default
   adapter: postgresql
   encoding: unicode
   host: localhost
-<<<<<<< HEAD
   username: Randall
   password: lineage2
-=======
-  username: malik
-  password: Mippim_93127
-
-
->>>>>>> 9cc85e1c9f53680973dcb7a92f23c7fc3cf98b46
+  # username: malik
+  # password: Mippim_93127
+  
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
