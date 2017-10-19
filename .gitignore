@@ -17,6 +17,7 @@
 /yarn-error.log
 
 .byebug_history
+<<<<<<< HEAD
 sendgrid.env
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -69,3 +70,8 @@ sendgrid.env
 =======
 secrets.yml
 >>>>>>> 6a45425ecc39d35a1c7c9d0a834754469cb86cf7
+=======
+
+secrets.yml
+
+>>>>>>> d67a7b9462b050608a5b468e36a880bd0b8dd049

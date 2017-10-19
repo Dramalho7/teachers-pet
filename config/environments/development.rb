@@ -71,4 +71,12 @@ config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
 
-end
+  ActionMailer::Base.smtp_settings = {
+    :address => "smtp.sendgrid.net",
+    :port => 25,
+    :domain => "mysite.com",
+    :authentication => :plain,
+    :user_name => "apikey",
+    :password => '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'
+  }
+

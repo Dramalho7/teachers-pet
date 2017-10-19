@@ -1,25 +1,28 @@
-# README
+# Overview
+Are you a teacher tired of keeping track of grades, behavior, attendance and participation notes on pen and paper? Have you gotten tired of creating a new email for weekly emails with parents, struggling to find the right words to use? With Teacher's Assistant you no longer have to. Mark individual students with different reports and send a template generated email at the click of a button. What will you do with those extra hours each week? You decide.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+# Technology
+## Front End
+    + HTML
+    + jQuery
+    + SASS
 
-* Ruby version
+## Back End
+    + Ruby on Rails
 
-* System dependencies
+## Database
+    + PostgreSQL
 
-* Configuration
+## API's / Gems
+    + SendGrid API
+    + Devise
+    + Chartkick
 
-* Database creation
+#Link to Screen Recording 
+[link](https://drive.google.com/file/d/0Bx8XWnbAQByyVmpSc0Fkc3phRG8/view)
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
+#Creators
+Daniel Ramalho
+Malik Pervez
+Randall Song

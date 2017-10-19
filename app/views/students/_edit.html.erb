@@ -1,16 +1,16 @@
-<h1>Edit Student</h1>
+
 
 <%= form_for @student do |f| %>
   <p>
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name , class: 'form-control', style: 'color:black !important;'%>
   </p>
 
   <p>
     <%= f.label :parent_email%><br>
-    <%= f.text_field :parent_email %>
+    <%= f.text_field :parent_email , class: 'form-control', style: 'color:black !important;'%>
   </p>
   <p>
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-success' %>
   </p>
 <% end %>
