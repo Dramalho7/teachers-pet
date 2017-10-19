@@ -79,4 +79,4 @@ config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
     :user_name => "apikey",
     :password => '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'
   }
-
+end
